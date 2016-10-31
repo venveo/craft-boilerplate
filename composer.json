@@ -27,6 +27,9 @@
         "venveo/craft-elixir": "^1.0.0"
     },
     "scripts": {
+        "post-install-cmd": [
+            "@composer craft:install"
+        ],
         "post-root-package-install": [
             "@composer craft:install",
             "php -r \"copy('.env.example', '.env');\""
