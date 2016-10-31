@@ -13,7 +13,6 @@ services:
             - ".:/var/www"
         env_file: .env
 
-
     mysql-server:
         image: venveo/baseimage:5.7-mysql
         ports:
