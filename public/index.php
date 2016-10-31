@@ -15,7 +15,7 @@ try {
         'APP_CPTRIGGER', 'APP_NAME', 'APP_KEY', 
         'DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS', 'DB_PREFIX'
     ]);
-} catch(\Exception $e) {
+} catch (\Exception $e) {
     // assume production
     putenv('APP_ENV=production');
 }
