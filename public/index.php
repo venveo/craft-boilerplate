@@ -4,7 +4,7 @@
 $craftPath = '../';
 
 // Do not edit below this line
-$path = rtrim($craftPath, '/').'/app/index.php';
+$path = rtrim($craftPath, '/') . '/app/index.php';
 
 require_once('../vendor/autoload.php');
 
@@ -13,7 +13,7 @@ require_once('../vendor/autoload.php');
 try {
     $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
     $dotenv->load();
-} catch (\Exception $e) {
+} catch (Exception $e) {
     // assume production
     putenv('APP_ENV=production');
 }
@@ -26,7 +26,7 @@ if (!is_file($path)) {
         http_response_code(503);
     }
 
-    exit('Could not find your craft/ folder. Please ensure that <strong><code>$craftPath</code></strong> is set correctly in '.__FILE__);
+    exit('Could not find your craft/ folder. Please ensure that <strong><code>$craftPath</code></strong> is set correctly in ' . __FILE__);
 }
 
 require_once $path;
