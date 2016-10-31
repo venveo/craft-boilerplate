@@ -6,7 +6,8 @@ $craftPath = '../';
 // Do not edit below this line
 $path = rtrim($craftPath, '/') . '/app/index.php';
 
-require_once('../vendor/autoload.php');
+// require composer autoload
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 // attempt to load PHPDotenv from composer
 // otherwise assume and set production env
@@ -14,7 +15,6 @@ try {
     $dotenv = new \Dotenv\Dotenv(dirname(__DIR__));
     $dotenv->load();
 } catch (Exception $e) {
-    die(var_dump($e));
     // assume production
     putenv('APP_ENV=production');
 }
