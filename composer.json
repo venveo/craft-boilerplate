@@ -39,7 +39,7 @@
             "mkdir -p craft",
             "curl -kLo ./craft.zip 'https://craftcms.com/latest.zip?accept_license=yes'",
             "unzip craft.zip -d tmp",
-            "mv tmp/craft/app craft/app",
+            "mv tmp/craft/app app",
             "rm -rf tmp && rm craft.zip"
         ]
     },
