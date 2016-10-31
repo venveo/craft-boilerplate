@@ -13,7 +13,6 @@ require_once('../vendor/autoload.php');
 try {
     $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
     $dotenv->load();
-    $dotenv->required(['APP_CPTRIGGER', 'APP_KEY', 'DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS', 'DB_PREFIX']);
 } catch (\Exception $e) {
     // assume production
     putenv('APP_ENV=production');
