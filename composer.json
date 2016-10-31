@@ -11,13 +11,11 @@
         "source": "https://github.com/venveo/craft-boilerplate"
     },
     "require": {
-        "php": "~5.6.13",
+        "php": "^7.0",
         "ext-mbstring": "*",
         "ext-mcrypt": "*",
         "ext-imagick": "*",
-        "ext-redis": "*",
-        "ext-memcached": "*",
-        "venveo/craft-elixir": "^1.0.0"
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "vlucas/phpdotenv": "^2.0",
@@ -25,15 +23,22 @@
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "5.4.*",
         "phpunit/phpunit-selenium": "^3.0",
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "~2.1",
+        "venveo/craft-elixir": "^1.0.0"
     },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\"",
-            "bash ./install.sh",
-            "rm ./install.sh"
+            "@composer craft:install",
+            "php -r \"copy('.env.example', '.env');\""
         ],
-        "post-create-project-cmd": []
+        "post-create-project-cmd": [],
+        "craft:install": [
+            "mkdir -p craft",
+            "curl -kLo ./craft.zip 'https://craftcms.com/latest.zip?accept_license=yes'",
+            "unzip craft.zip -d tmp",
+            "mv tmp/craft/app craft/app",
+            "rm -rf tmp && rm craft.zip"
+        ]
     },
     "config": {
         "preferred-install": "dist"
