@@ -9,14 +9,14 @@ $path = rtrim($craftPath, '/') . '/app/index.php';
 // require composer autoload
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-// attempt to load PHPDotenv from composer
-// otherwise assume and set production env
-try {
-    $dotenv = new \Dotenv\Dotenv(dirname(__DIR__));
-    $dotenv->load();
-} catch (Exception $e) {
-    // assume production
-    putenv('APP_ENV=production');
+// if APP_ENV is defined, assume production
+if (is_null(getenv('APP_ENV')) || getenv('APP_ENV') == 'local') {
+    try {
+        $dotenv = new \Dotenv\Dotenv(dirname(__DIR__));
+        $dotenv->load();
+    } catch (Exception $e) {
+        exit('Missing the environment configuration');
+    }
 }
 
 // define the path the the templates
