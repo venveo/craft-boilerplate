@@ -1,4 +1,7 @@
-var elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir')
+    gulp = require('gulp')
+    connect = require('gulp-connect-php')
+    browserSync = require('browser-sync');
 
 // var includePaths = [
 //     "bower_components/foundation-sites/scss",
@@ -29,4 +32,23 @@ elixir(function(mix) {
     //     'public/css/app.css',
     //     'public/css/style.css'
     // ]);
+});
+
+// create a local 
+gulp.task("static", function() {
+    // create the server
+    connect.server({
+        port: 3000,
+        base: 'resources/static'
+    },
+    function() {
+        browserSync({
+            proxy: '127.0.0.1:3000'        
+        })
+    });
+
+    // listen for any changes
+    gulp.watch('resources/static/**/*.html').on('change', function () {
+        browserSync.reload();
+    });
 });

@@ -1,9 +1,13 @@
 {
   "private": true,
-  "devDependencies": {
-    "gulp": "^3.9.1"
+  "scripts": {
+    "prod": "gulp --production",
+    "static": "gulp static"
   },
-  "dependencies": {
-    "laravel-elixir": "^5.0.0"
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect-php": "^0.0.8",
+    "laravel-elixir": "^5.0",
+    "browser-sync": "^2.17.5"
   }
 }
