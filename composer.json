@@ -33,10 +33,13 @@
         ],
         "post-create-project-cmd": [],
         "craft:install": [
-            "mkdir -p craft",
+            "mkdir -p app public",
             "curl -kLo ./craft.zip 'https://craftcms.com/latest.zip?accept_license=yes'",
             "unzip craft.zip -d tmp",
-            "mv tmp/craft/app app",
+            "mv tmp/craft/app/* app",
+            "mv tmp/public/* public",
+            "mv public/htaccess public/.htaccess",
+            "sed -i \"\" \"s/craftPath = '..\\/craft'/craftPath = \\'..\\/\\'/g\" <<< \"craftPath = '../craft';\" public/index.php",
             "rm -rf tmp && rm craft.zip"
         ]
     },
