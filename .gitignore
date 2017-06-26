@@ -2,3 +2,16 @@
 /node_modules
 .idea
 .env
+/.env
+/.mysql.env
+.DS_Store
+node_modules
+.sass-cache
+.publish
+public/assets
+Desktop.ini
+**/generated/_icons.sass
+npm-debug.log
+dev_kireinew.localhost*
+resources/assets/images
+resources/assets/static

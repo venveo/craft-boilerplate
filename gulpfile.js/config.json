@@ -1,0 +1,79 @@
+{
+  "root": {
+    "src": "./resources/assets",
+    "dest": "./public/assets",
+    "public": "assets"
+  },
+
+  "tasks": {
+    "browserSync": {
+      "proxy": "localhost:8000",
+      "port": 8080
+    },
+
+    "static": {
+      "src": "static",
+      "dest": "./"
+    },
+
+    "vendor": {
+      "bower": ["bower.json", "bowerrc"],
+      "dest": {
+        "js": "./",
+        "css": "./",
+        "fonts": "./"
+      }
+    },
+
+    "js": {
+      "src": "./js",
+      "dest": "./js",
+      "entries": {
+        "app": ["app.js"]
+      },
+      "extensions": ["js", "json"],
+      "babel": {
+        "presets": ["es2015", "stage-1"],
+        "plugins": []
+      },
+      "extractSharedJs": false
+    },
+    "css": {
+      "src": "stylesheets",
+      "dest": "stylesheets",
+      "autoprefixer": {
+        "browsers": ["last 3 versions"]
+      },
+      "sass": {},
+      "extensions": ["sass", "scss", "css"],
+      "sass_extensions": ["sass", "scss"]
+    },
+
+    "html": {
+      "src": "html",
+      "dest": "./",
+      "dataFile": "data/global.json",
+      "htmlmin": {
+        "collapseWhitespace": true
+      },
+      "extensions": ["html", "json"],
+      "excludeFolders": ["layouts", "shared", "macros", "data"]
+    },
+
+    "images": {
+      "src": "images",
+      "dest": "images",
+      "extensions": ["jpg", "png", "svg"]
+    },
+
+    "fonts": {
+      "src": "fonts",
+      "dest": "fonts",
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
+    },
+
+    "production" : {
+      "rev": true
+    }
+  }
+}
