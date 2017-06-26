@@ -1,3 +1,5 @@
-class App {
+$(document).foundation();
+
+(function() {
     
-}
+});
