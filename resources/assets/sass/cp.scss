@@ -1,0 +1,21 @@
+/*
+This file is for including on the Craft control panel and customizing things
+like the Redactor input field. You'll need to install a plugin for including
+styles, such as doublesecretagency/craft-cpcss
+ */
+
+// Any redactor fields using the "BasicFormatting" config will get this class
+.site-text-editor {
+    p, h2, h3, h4 {
+    }
+    h1 {
+    }
+    h2 {
+    }
+    h3 {
+    }
+    h4 {
+    }
+    a {
+    }
+}

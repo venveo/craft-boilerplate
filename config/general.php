@@ -1,59 +1,58 @@
 <?php
+/**
+ * General Configuration
+ *
+ * All of your system's general configuration settings go in here. You can see a
+ * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
+ *
+ * @see craft\config\GeneralConfig
+ */
 
-// these items are shared between environments
-$shared = [
-    // general options
-    'siteName' => getenv('APP_NAME'),
-    'sendPoweredByHeader' => false,
+return [
+    // Global settings
+    '*' => [
+        // Default Week Start Day (0 = Sunday, 1 = Monday...)
+        'defaultWeekStartDay' => 0,
 
-    // template options
-    'errorTemplatePrefix' => "_errors/",
+        // Enable CSRF Protection (recommended)
+        'enableCsrfProtection' => true,
 
-    // user options
-    'useEmailAsUsername' => true
-];
+        // Whether "index.php" should be visible in URLs
+        'omitScriptNameInUrls' => true,
 
-// if the instance is local
-if (getenv('APP_ENV') == 'local') {
-    // merge shared with local
-    return array_merge($shared, [
-        // general options
-        'devMode' => true,
+        // Control Panel trigger word
+        'cpTrigger' => 'admin',
 
-        // caching options
-        'enableTemplateCaching' => false,
+        // The secure key Craft will use for hashing and encrypting data
+        'securityKey' => getenv('SECURITY_KEY'),
 
-        // user options
-        'testToEmailAddress' => 'you@domain.com'
-    ]);
-}
+        'maxUploadFileSize' => 33554432 * 2,
 
-// assume we are in staging/production
+        'useEmailAsUsername' => true,
 
-return array_merge($shared, [
-    // general options
-    'cacheMethod' => 'redis',
-    'devMode' => false,
-    'environmentVariables' => [
-        'baseAssetUrl'  => getenv('APP_URL'),
-        // 'baseAssetPath' => './',
+        'extraAllowedFileExtensions' => ''
     ],
-    'siteUrl' => getenv('APP_URL'),
 
-    // security options
-    'enableCsrfProtection' => true,
-    'validationKey' => getenv('APP_KEY'),
+    // Dev environment settings
+    'dev' => [
+        // Base site URL
+        'siteUrl' => null,
 
-    // updates
-    'allowAutoUpdates' => false,
-    'backupDbOnUpdate' => false,
-    'restoreDbOnUpdateFailure' => false,
+        // Dev Mode (see https://craftcms.com/support/dev-mode)
+        'devMode' => true,
+    ],
 
-    // urls
-    'addTrailingSlashesToUrls' => true,
-    'cpTrigger' => getenv('APP_CPTRIGGER'),
-    'omitScriptNameInUrls' => true,
+    // Staging environment settings
+    'staging' => [
+        // Base site URL
+        'siteUrl' => null,
 
-    // assets
-    'imageDriver' => 'imagick'
-]);
+        'devMode' => true,
+    ],
+
+    // Production environment settings
+    'production' => [
+        // Base site URL
+        'siteUrl' => null,
+    ],
+];

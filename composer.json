@@ -16,40 +16,36 @@
         "ext-mcrypt": "*",
         "ext-imagick": "*",
         "predis/predis": "^1.1"
+        "craftcms/cms": "^3.0.0",
+        "vlucas/phpdotenv": "^2.4.0",
+        "craftcms/aws-s3": "^1.0",
+        "craftcms/element-api": "^2.5",
+        "craftcms/mailgun": "^1.0",
+        "craftcms/redactor": "^1.0",
+        "charliedev/element-map": "^1.0",
+        "mmikkel/cp-field-inspect": "^1.0",
+        "nystudio107/craft-eagerbeaver": "^1.0",
+        "ostark/upper": "^1.3",
+        "aelvan/imager": "^2.0",
+        "clubstudioltd/craft-asset-rev": "^6.0",
+        "doublesecretagency/craft-cpcss": "^2.1"
     },
     "require-dev": {
-        "vlucas/phpdotenv": "^2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "5.4.*",
         "phpunit/phpunit-selenium": "^3.0",
-        "phpspec/phpspec": "~2.1",
-        "venveo/craft-elixir": "^1.0.0"
-    },
+        "phpspec/phpspec": "~2.1"
+    }
     "scripts": {
         "post-root-package-install": [
-            "@composer craft:install",
             "php -r \"copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [],
-        "craft:install": [
-            "mkdir -p craft",
-            "curl -kLo ./craft.zip 'https://craftcms.com/latest.zip?accept_license=yes'",
-            "unzip craft.zip -d tmp",
-            "mv tmp/craft/app app",
-            "rm -rf tmp && rm craft.zip"
-        ]
+        "craft:install": []
     },
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "dev",
-    "extra": {
-        "installer-paths": {
-            "plugins/{$name}": [
-                "type:craft-plugin",
-                "vendor/package"
-            ]
-        }
-    }
+    "minimum-stability": "dev"
 }

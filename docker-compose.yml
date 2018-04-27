@@ -12,7 +12,8 @@ services:
             - mysql-server
             - redis-server
         volumes:
-            - ".:/var/www"
+            - .:/var/www
+            - ./build/000-default.conf:/etc/apache2/sites-available/000-default.conf
         env_file: .env
 
     mysql-server:
@@ -27,7 +28,7 @@ services:
             MYSQL_PASSWORD: Password1!
             MYSQL_USER: craftcms
             MYSQL_ALLOW_EMPTY_PASSWORD: "no"
-    
+
     redis-server:
         image: "venveo/baseimage:3.2-redis"
         ports:
