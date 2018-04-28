@@ -15,7 +15,7 @@
         "ext-mbstring": "*",
         "ext-mcrypt": "*",
         "ext-imagick": "*",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
         "craftcms/cms": "^3.0.0",
         "vlucas/phpdotenv": "^2.4.0",
         "craftcms/aws-s3": "^1.0",
@@ -36,7 +36,7 @@
         "phpunit/phpunit": "5.4.*",
         "phpunit/phpunit-selenium": "^3.0",
         "phpspec/phpspec": "~2.1"
-    }
+    },
     "scripts": {
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
