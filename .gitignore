@@ -2,6 +2,7 @@
 /.mysql.env
 /.idea
 /vendor
+/frontend/dist
 .DS_Store
 node_modules
 .sass-cache
