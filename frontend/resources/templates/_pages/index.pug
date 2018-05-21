@@ -1,16 +1,18 @@
 extends ../_layouts/default
 
+//- Set Title
+prepend headtitle
+  - var title = 'Homepage'
+  
+//- Append custom style for this template
+append styles
+  //-<link rel="stylesheet" href="assets/css/.css" />
+
 block content
   <div class="page-homepage">
-  
-    <div class="grid-x grid-padding-x align-center">
-      <div class="cell medium-6 text-center margin-top-3 margin-bottom-3">
-        <h1>Homepage</h1>
-        <h2 class="subheader">Subheader</h2>
-        <p class="lead">Some a bit larger than regular text content</p>
-        <p>This is reegular text size</p>
-        <img src="assets/images/profilePic-Nikki.jpg" alt="image description" />
-        <p><small>small text</small></p>
-      </div>
-      
+    <h1>Homepage!</h1>
   </div>
+  
+//- Append custom script for this template
+append scripts
+  //-<script src="assets/js/.js"></script>

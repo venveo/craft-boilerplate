@@ -4,16 +4,24 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Site Title</title>
+    block headtitle
+      if title
+        title #{title} - Site Title
+      else
+        title Site Title
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
-    include ../_partials/head
+    block styles
+      include ../_partials/styles
   </head>
   <body>
     <div id="outer-site-wrap">
-    <main class="main-wrap">
-      block content
-    </main>
+      <main class="main-wrap">
+        //- Page Content Starts here
+        block content
+      </main>
     </div>
   </body>
-  include ../_partials/scripts
+  block scripts
+    //- Include Scripts
+    include ../_partials/scripts
 </html>
