@@ -92,7 +92,7 @@ if(env == 'frontend') {
 else {
   mix.browserSync({
     proxy: 'localhost:8000',
-    host: "'"+bsHost+"'",
+    host: bsHost,
     port: 8080,
     open: false,
     files: bsFiles
