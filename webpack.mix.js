@@ -93,7 +93,7 @@ else {
   mix.browserSync({
     proxy: 'localhost:8000',
     host: "'"+bsHost+"'",
-    port: 80,
+    port: 8080,
     open: false,
     files: bsFiles
   })
