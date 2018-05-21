@@ -11,7 +11,6 @@
 // import slickInit from './slick'
 // import heroCarousel from './hero-carousel'
 // import customDropdown from './custom-dropdown'
-// import isotopeFilters from './isotope-filters'
 // import modal from './modal'
 
 function init() {
