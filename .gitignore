@@ -2,7 +2,8 @@
 /.mysql.env
 /.idea
 /vendor
-/frontend/dist
+frontend/dist/*
+web/assets/*
 .DS_Store
 node_modules
 .sass-cache
