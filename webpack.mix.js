@@ -1,92 +1,100 @@
-// Configure these:
-const srcPath = 'frontend/resources/assets'
-const srcTplPath = 'frontend/resources/templates'
-const publicPath = 'frontend'
-const distPath = 'frontend/dist'
-
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const mix = require('laravel-mix')
 mix.pug = require('laravel-mix-pug')
 
+const env = process.env.NODE_ENV
+
+const srcAssetPath = 'frontend/resources/assets'
+const srcTplPath = (env == 'frontend') ? 'frontend/resources/templates' : 'templates'
+const distPath = (env == 'frontend') ? 'frontend/dist' : 'web'
+
+// SERVER_NAME
+if ( env !== 'frontend' && process.env.SERVER_NAME !== undefined ) {
+  var bsHost = process.env.SERVER_NAME
+}
+
+// browserSync Files
+const bsFiles = [
+  srcTplPath + '/**/*.twig',
+  srcTplPath + '/**/*.pug',
+  srcAssetPath + '/js/**/*.jsx',
+  distPath + '/assets/css/**/*.css',
+  distPath + '/assets/js/**/*.js'
+]
+
 // Extract jquery to the vendor.js file
 // Feel free to add any other vendor dependencies that are rarely updated
-mix.extract([
-        'jquery'
-    ])
-    .autoload({
-        jquery: ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"]
-    });
+mix.extract([ 'jquery', 'what-input', 'headroom.js', 'imagesloaded', 'isotope-layout', 'slick-carousel', 'readmore-js' ])
+  .autoload({
+      jquery: ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"]
+  });
 
 mix.setPublicPath(distPath);
 
 mix
-    // Compile our main app entry point
-    .js(srcPath + '/js/app.js', distPath + '/assets/js')
-    // Compile our main app styles
-    .sass(srcPath + '/sass/app.scss', distPath + '/assets/css')
-    .options({ processCssUrls: false })
+  // Compile our main app entry point
+  .js(srcAssetPath + '/js/app.js', distPath + '/assets/js')
+  // Compile our main app styles
+  .sass(srcAssetPath + '/sass/app.scss', distPath + '/assets/css')
+  .options({ processCssUrls: false })
+  // Copy over directory contents for images and fonts
+  .copyDirectory(srcAssetPath + '/images', distPath + '/assets/images')
+  .copyDirectory(srcAssetPath + '/fonts', distPath + '/assets/fonts')
+  if( env == 'frontend' ){
     // Compile pug pages, Note: output var paths doesn't work
-    .pug(srcTplPath + '/_pages/**/*.pug', '../../../dist')
-    // Copy over directory contents for images and fonts
-    .copyDirectory(srcPath + '/images', distPath + '/assets/images')
-    .copyDirectory(srcPath + '/fonts', distPath + '/assets/fonts')
+    mix.pug(srcTplPath + '/_pages/**/*.pug', '../../../dist')
+  }
 
 // Make sure we babelify proper modules and create font files
 mix.webpackConfig({
-    module: {
-        rules: [
-            {
-                test: /\.js?$/,
-                exclude: /node_modules\/(?!(foundation-sites)\/).*/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: mix.config.babel()
-                    }
-                ]
-            },
-            {
-                test: /\.font\.js/,
-                loader: ExtractTextPlugin.extract({
-                    use: [
-                        'css-loader',
-                        'webfonts-loader'
-                    ]
-                })
-            }
-        ],
-    }
+  module: {
+    rules: [
+      {
+        test: /\.js?$/,
+        exclude: /node_modules\/(?!(foundation-sites)\/).*/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: mix.config.babel()
+          }
+        ]
+      },
+      {
+        test: /\.font\.js/,
+        loader: ExtractTextPlugin.extract({
+          use: [
+            'css-loader',
+            'webfonts-loader'
+          ]
+        })
+      }
+    ],
+  }
 })
 
 // Create manifest file for production, sourcemaps for dev
-if (mix.inProduction()) {
-    mix.version()
-} else {
-  mix.webpackConfig({
-      devtool: 'source-map'
-  })
+if ( mix.inProduction() ) { mix.version() }
+else { mix.webpackConfig({ devtool: 'source-map' })
   .sourceMaps()
 }
 
-mix.browserSync({
-    open: false,
-    // Enable if using craft dev
-    // proxy: 'localhost:8000',
-    // End: Enable if using craft dev
-    host: 'localhost',
-    injectChanges: true,
-    logSnippet: true,
-    reload: true,
-    // Enable if frontend dev
+// browserSync Frontend
+if(env == 'frontend') {
+  mix.browserSync({
     proxy: false,
     server: {baseDir: distPath},
-    // End: Enable if frontend development
-    files: [
-        'templates/**/*.twig',
-        srcTplPath + '/**/*.pug',
-        srcPath + '/js/**/*.jsx',
-        distPath + '/assets/css/**/*.css',
-        distPath + '/assets/js/**/*.js'
-    ],
-    port: 8000
-})
+    host: 'localhost',
+    port: 8000,
+    files: bsFiles
+  })
+}
+// browserSync Development & Production
+else {
+  mix.browserSync({
+    proxy: 'localhost:8000',
+    host: "'"+bsHost+"'",
+    port: 80,
+    open: false,
+    files: bsFiles
+  })
+}
