@@ -1,3 +1,5 @@
+import Headroom from 'headroom.js'
+
 function init(){
   // grab an element
   var header = document.querySelector("header");
