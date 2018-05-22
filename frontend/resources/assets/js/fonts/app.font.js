@@ -9,5 +9,5 @@ module.exports = {
     'classPrefix': 'appicon-',
     'baseSelector': '.appicon',
     'types': ['eot', 'woff', 'woff2', 'ttf', 'svg'],
-    'fileName': './assets/fonts/appicons/[fontname].[hash].[ext]'
+    'fileName': './assets/fonts/appicons/[fontname].[ext]'
 }
