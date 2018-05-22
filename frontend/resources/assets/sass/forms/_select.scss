@@ -1,0 +1,42 @@
+// Default Select tag
+// ---
+select {
+  height: 3.438rem;
+  padding-left: 15px;
+  margin: 0 0 1.6rem;
+}
+
+// Custom Input
+// ---
+// .custom-select {
+//   margin: 0 0 1.6rem;
+//   border: 1px solid $secondary-color;
+//   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+//   position: relative;
+//   overflow: hidden;
+//   select {
+//     background: none;
+//     border: none;
+//     margin: 0;
+//     width: 100%;
+//     padding-right: 40px;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//     -webkit-appearance: none;
+//   	-moz-appearance: none;
+//   	-o-appearance: none;
+//     appearance: none;
+//   }
+//   &::after {
+//     content: '\e907';
+//     font-family: 'metalco-icons';
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     right: 20px;
+//     font-size: 14px;
+//     color: $black;
+//     height: 18px;
+//   }
+// }
