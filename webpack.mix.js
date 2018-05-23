@@ -16,7 +16,7 @@ if ( env !== 'frontend' && process.env.SERVER_NAME !== undefined ) {
 // browserSync Files
 const bsFiles = [
   srcTplPath + '/**/*.twig',
-  srcTplPath + '/**/*.pug',
+  distPath + '/**/*.html',
   srcAssetPath + '/js/**/*.jsx',
   distPath + '/assets/css/**/*.css',
   distPath + '/assets/js/**/*.js'
