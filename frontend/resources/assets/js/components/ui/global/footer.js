@@ -1,12 +1,14 @@
+import $ from 'jquery'
+
 // Function for footer mobile
 function footerAccordionMobile(){
-  $('.footer-link-col').on('click', function(){
-    $(this).toggleClass('active');
-  });
+    $('.footer-link-col').on('click', function(){
+        $(this).toggleClass('active')
+    })
 }
 
 function init(){
-  footerAccordionMobile()
-};
+    footerAccordionMobile()
+}
 
-export default init;
+export default init

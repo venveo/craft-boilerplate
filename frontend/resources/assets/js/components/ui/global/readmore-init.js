@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 function init() {
     let $readmore = $('[data-readmore]')
     $readmore.each((idx, item) => {
@@ -11,25 +13,25 @@ function initReadMore(item) {
 
 function updateLink(item) {
     const active = $(item).data('readmore-active')
-    let link = `<a href="#">&nbsp;See More</a>`
+    let link = '<a href="#">&nbsp;See More</a>'
     if (active) {
-        link = `<a href="#">&nbsp;See Less</a>`
+        link = '<a href="#">&nbsp;See Less</a>'
     }
 
     const $link = $(link)
 
-    $(item).append($link);
+    $(item).append($link)
     $('body').on('click', '[data-readmore] a', (e) => {
         e.preventDefault()
-        const $parent = $(e.target).parent();
-        const active = $parent.data('readmore-active');
-        const text = $parent.data('readmore');
+        const $parent = $(e.target).parent()
+        const active = $parent.data('readmore-active')
+        const text = $parent.data('readmore')
 
-        $link.remove();
+        $link.remove()
         $parent.data('readmore', $parent.text())
-        $parent.text(text);
+        $parent.text(text)
         $parent.data('readmore-active', !active)
-        $('body').off(e);
+        $('body').off(e)
         updateLink(item)
     })
 }

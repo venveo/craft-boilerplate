@@ -17,4 +17,4 @@ function init() {
     // slickInit()
 }
 
-export default init;
+export default init

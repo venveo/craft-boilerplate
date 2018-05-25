@@ -1,8 +1,17 @@
-function init(){
-  $('[data-trigger-icon]').on('click', function () {
-    var $dVal = $(this).attr('data-trigger-icon');
-    $('#outer-site-wrap').toggleClass($dVal);
-  });
-};
+import $ from 'jquery'
 
-export default init;
+function init(){
+
+    let $layouts = $('[data-site-layouts]')
+    let $search = $('.hs-input').find('input[type="search"]')
+
+    $('[data-trigger-icon]').on('click', function () {
+        let $dVal = $(this).attr('data-trigger-icon')
+        $layouts.toggleClass($dVal)
+        if($dVal === 'active-search' && $layouts.hasClass('active-search') ) {
+            $search.focus()
+        }
+    })
+}
+
+export default init
