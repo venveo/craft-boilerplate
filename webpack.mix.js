@@ -61,8 +61,16 @@ mix.webpackConfig({
                 test: /\.font\.js/,
                 loader: ExtractTextPlugin.extract({
                     use: [
-                        'css-loader',
-                        'webfonts-loader'
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false
+                            }
+                        },
+                        {
+                            loader: 'webfonts-loader',
+                            options: { publicPath: '../../' }
+                        }
                     ]
                 })
             }
