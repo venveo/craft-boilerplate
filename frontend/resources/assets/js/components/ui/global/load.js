@@ -1,7 +1,6 @@
-function _pagePreload() {
+function pagePreload() {
     // store everthing in a variable only for this scope
     let body = document.getElementsByTagName('body')[0]
-    let outerSite = document.getElementById('outerSite')
     // prevent body content from showing split a second.
     body.style.opacity = '0'
     // DOMContentLoaded Event will fire once stylesheet, js and DOM are finished downloading.
@@ -21,7 +20,7 @@ function _pagePreload() {
 }
 
 function init() {
-    // _pagePreload()
+    // pagePreload()
 }
 
 export default init

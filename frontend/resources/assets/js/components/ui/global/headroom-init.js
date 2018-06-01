@@ -7,9 +7,6 @@ function init(){
     var headroom  = new Headroom(header,{
         'offset': 0,
         'tolerance': 0,
-        // onUnpin : function() {
-        //   document.querySelector('#outerSite').className = '';
-        // }
     })
     // initialise
     headroom.init()

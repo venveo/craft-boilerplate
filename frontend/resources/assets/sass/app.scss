@@ -59,6 +59,10 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
+// Util
+// ---
+@import 'util/animate';
+
 // Forms
 // =====
 @import 'forms/index';

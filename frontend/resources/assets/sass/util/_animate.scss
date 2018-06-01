@@ -1,117 +1,172 @@
-// ========================
-// It is mandatory to set [data-animate] attribute, 'animate', 'duration' classes to work properly.
 
-// Usage:
-// Transition Type: ease-up[ from bottom to top ], fade-in [ fading in ]
-// Duration: duration-[ value 1-10 ], The higher the slower the animation
-// Delay: delay-[ value 1-17 ], The higher the longer it takes the animation to fire up
+// 1024px and up
+@include breakpoint(large up) {
+  .animate {
+    opacity: 0;
+    position: relative;
+    transition-property: transform, opacity;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
 
-// Example:
-// <div data-animate class="animate ease-up duration-5">Animate me</div>
-// ========================
+    // ease-up
+    &.ease-up {
+      transition-timing-function: ease;
+    }
 
-.animate {
-  opacity: 0;
-  position: relative;
-  transition-property: all;
-  will-change: auto;
-  &.show {
-    opacity: 1;
-    &.duration-1 {
-      transition-duration: 100ms !important;
+    // ease-in up
+    &.ease-in-up {
+      transition-timing-function: ease-in;
     }
-    &.duration-2 {
-      transition-duration: 200ms !important;
+
+    // ease-out up
+    &.ease-out-up {
+      transition-timing-function: ease-out;
     }
-    &.duration-3 {
-      transition-duration: 300ms !important;
+
+    &.ease-left {
+      transition-timing-function: ease;
     }
-    &.duration-4 {
-      transition-duration: 400ms !important;
+
+    // Fade-in
+    &.fade-in {
+      transition-timing-function: ease;
     }
-    &.duration-5 {
-      transition-duration: 500ms !important;
-    }
-    &.duration-6 {
-      transition-duration: 600ms !important;
-    }
-    &.duration-7 {
-      transition-duration: 700ms !important;
-    }
-    &.duration-8 {
-      transition-duration: 800ms !important;
-    }
-    &.duration-9 {
-      transition-duration: 900ms !important;
-    }
-    &.duration-10 {
-      transition-duration: 1000ms !important;
-    }
-    // Delay:
-    // =========
-    &.delay-1 {
-      transition-delay: 100ms;
-    }
-    &.delay-2 {
-      transition-delay: 150ms;
-    }
-    &.delay-3 {
-      transition-delay: 200ms;
-    }
-    &.delay-4 {
-      transition-delay: 250ms;
-    }
-    &.delay-5 {
-      transition-delay: 300ms;
-    }
-    &.delay-6 {
-      transition-delay: 350ms;
-    }
-    &.delay-7 {
-      transition-delay: 400ms;
-    }
-    &.delay-8 {
-      transition-delay: 450ms;
-    }
-    &.delay-9 {
-      transition-delay: 500ms;
-    }
-    &.delay-10 {
-      transition-delay: 600ms;
-    }
-    &.delay-11 {
-      transition-delay: 650ms;
-    }
-    &.delay-12 {
-      transition-delay: 750ms;
-    }
-    &.delay-13 {
-      transition-delay: 800ms;
-    }
-    &.delay-14 {
-      transition-delay: 850ms;
-    }
-    &.delay-15 {
-      transition-delay: 900ms;
-    }
-    &.delay-16 {
-      transition-delay: 950ms;
-    }
-    &.delay-17 {
-      transition-delay: 1000ms;
-    }
-  }
-  // Ease-up
-  &.ease-up {
-    transform: translate3d(0, 80px, 0);
-    &.show {
-      transform: translate3d(0, 0, 0) !important;
-    }
-  }
-  // Fade-in
-  &.fade-in {
+
     &.show {
       opacity: 1;
+
+      &.duration-1 {
+        transition-duration: 100ms;
+      }
+
+      &.duration-2 {
+        transition-duration: 150ms;
+      }
+
+      &.duration-3 {
+        transition-duration: 250ms;
+      }
+
+      &.duration-4 {
+        transition-duration: 300ms;
+      }
+
+      &.duration-5 {
+        transition-duration: 350ms;
+      }
+
+      &.duration-6 {
+        transition-duration: 400ms;
+      }
+
+      &.duration-7 {
+        transition-duration: 450ms;
+      }
+
+      &.duration-8 {
+        transition-duration: 500ms;
+      }
+
+      &.duration-9 {
+        transition-duration: 550ms;
+      }
+
+      &.duration-10 {
+        transition-duration: 600ms;
+      }
+
+      // Delay
+      // ---
+      &.delay-1 {
+        transition-delay: 100ms;
+      }
+
+      &.delay-2 {
+        transition-delay: 200ms;
+      }
+
+      &.delay-3 {
+        transition-delay: 300ms;
+      }
+
+      &.delay-4 {
+        transition-delay: 400ms;
+      }
+
+      &.delay-5 {
+        transition-delay: 500ms;
+      }
+
+      &.delay-6 {
+        transition-delay: 600ms;
+      }
+
+      &.delay-7 {
+        transition-delay: 700ms;
+      }
+
+      &.delay-8 {
+        transition-delay: 800ms;
+      }
+
+      &.delay-9 {
+        transition-delay: 900ms;
+      }
+
+      &.delay-10 {
+        transition-delay: 1000ms;
+      }
+
+      &.delay-11 {
+        transition-delay: 1100ms;
+      }
+
+      &.delay-12 {
+        transition-delay: 1200ms;
+      }
+
+      &.delay-13 {
+        transition-delay: 1300ms;
+      }
+
+      &.delay-14 {
+        transition-delay: 1400ms;
+      }
+
+      &.delay-15 {
+        transition-delay: 1500ms;
+      }
+    }
+
+    &[class^='ease-'],
+    &[class*=' ease-'] {
+      &.show {
+        transform: none !important;
+      }
+    }
+
+    &[class*='-up'] {
+      transform: translateY(80px);
+    }
+
+    &[class*='-up-full'] {
+      transform: translateY(100%);
+    }
+
+    &[class*='-left'] {
+      transform: translateX(80px);
+    }
+
+    &[class*='-down'] {
+      transform: translateY(-80px);
+    }
+
+    &[class*='-down-full'] {
+      transform: translateY(-100%);
+    }
+
+    &[class*='-right'] {
+      transform: translateX(-80px);
     }
   }
 }
