@@ -7,52 +7,36 @@
  *
  * @see craft\config\GeneralConfig
  */
-
 return [
-    // Global settings
-    '*' => [
-        // Default Week Start Day (0 = Sunday, 1 = Monday...)
-        'defaultWeekStartDay' => 0,
+    // Default Week Start Day (0 = Sunday, 1 = Monday...)
+    'defaultWeekStartDay' => 0,
 
-        // Enable CSRF Protection (recommended)
-        'enableCsrfProtection' => true,
+    // Enable CSRF Protection (recommended)
+    'enableCsrfProtection' => true,
 
-        // Whether "index.php" should be visible in URLs
-        'omitScriptNameInUrls' => true,
+    'imageDriver' => 'imagick',
 
-        // Control Panel trigger word
-        'cpTrigger' => 'admin',
+    // Whether "index.php" should be visible in URLs
+    'omitScriptNameInUrls' => true,
 
-        // The secure key Craft will use for hashing and encrypting data
-        'securityKey' => getenv('SECURITY_KEY'),
+    // Control Panel trigger word
+    'cpTrigger' => 'admin',
 
-        'maxUploadFileSize' => 33554432 * 2,
+    // The secure key Craft will use for hashing and encrypting data
+    'securityKey' => getenv('SECURITY_KEY'),
 
-        'useEmailAsUsername' => true,
+    'maxUploadFileSize' => 33554432 * 7,
 
-        'extraAllowedFileExtensions' => ''
-    ],
+    'useEmailAsUsername' => true,
 
-    // Dev environment settings
-    'dev' => [
-        // Base site URL
-        'siteUrl' => null,
+    'extraAllowedFileExtensions' => 'json',
 
-        // Dev Mode (see https://craftcms.com/support/dev-mode)
-        'devMode' => true,
-    ],
+    'siteUrl' => getenv('APP_URL'),
+    'baseCpUrl' => getenv('APP_URL'),
 
-    // Staging environment settings
-    'staging' => [
-        // Base site URL
-        'siteUrl' => null,
+    'devMode' => getenv('ENVIRONMENT') === 'staging' || getenv('ENVIRONMENT') === 'dev',
 
-        'devMode' => true,
-    ],
+    'runQueueAutomatically' => false,
 
-    // Production environment settings
-    'production' => [
-        // Base site URL
-        'siteUrl' => null,
-    ],
+    'errorTemplatePrefix' => '_errors/'
 ];
