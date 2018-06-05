@@ -1,0 +1,30 @@
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea {
+  height: auto;
+  margin: 0 0 1.6rem;
+  padding: .7rem 1rem;
+  line-height: 1.94;
+  font-size: 16px;
+
+  // fix hack issue for android device placeholder being cut off using this futura book font
+  &::placeholder {
+    height: 55px;
+  }
+}
+
+[type='search'] {
+  margin-bottom: 0;
+}

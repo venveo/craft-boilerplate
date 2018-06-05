@@ -1,0 +1,36 @@
+// Styleguide
+// ---
+
+.guide-title {
+  font-size: 20px;
+  text-align: center;
+}
+
+.sg-colorPalette {
+  .clr {
+    width: 100%;
+    height: 125px;
+    display: inline-block;
+    position: relative;
+    small {
+      color: $white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      text-shadow: 0 0 3px rgba(0, 0, 0, .3);
+      transform: translate(-50%, -50%);
+    }
+    &.clr1 {
+      background-color: $primary-color;
+    }
+    &.clr2 {
+      background-color: $secondary-color;
+    }
+    &.clr3 {
+      background-color: $light-gray;
+    }
+    &.clr4 {
+      background-color: $medium-gray;
+    }
+  }
+}
