@@ -27,7 +27,7 @@ return [
             'redis' => [
                 'hostname' => getenv('REDIS_HOST'),
                 'port' => getenv('REDIS_PORT'),
-                'password' => getenv('REDIS_PASS'),
+//                'password' => getenv('REDIS_PASS'),
                 'database' => getenv('REDIS_DB'),
             ],
         ],
