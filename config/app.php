@@ -20,5 +20,17 @@
 return [
     'modules' => [
     ],
+    'components' => [
+        'cache' => [
+            'class' => yii\redis\Cache::class,
+            'defaultDuration' => 86400,
+            'redis' => [
+                'hostname' => getenv('REDIS_HOST'),
+                'port' => getenv('REDIS_PORT'),
+                'password' => getenv('REDIS_PASS'),
+                'database' => getenv('REDIS_DB'),
+            ],
+        ],
+    ],
     //'bootstrap' => ['my-module'],
 ];

@@ -11,7 +11,7 @@
         "source": "https://github.com/venveo/craft-boilerplate"
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
         "predis/predis": "^1.1",
         "craftcms/cms": "^3.0.0",
         "vlucas/phpdotenv": "^2.4.0",
@@ -24,7 +24,8 @@
         "nystudio107/craft-eagerbeaver": "^1.0",
         "aelvan/imager": "^2.0",
         "clubstudioltd/craft-asset-rev": "^6.0",
-        "doublesecretagency/craft-cpcss": "^2.1"
+        "doublesecretagency/craft-cpcss": "^2.1",
+        "yiisoft/yii2-redis": "~2.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

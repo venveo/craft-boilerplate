@@ -30,6 +30,4 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: "no"
 
     redis-server:
-        image: "venveo/baseimage:3.2-redis"
-        ports:
-            - "6379:6379"
+        image: redis:alpine
