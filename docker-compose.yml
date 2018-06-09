@@ -2,9 +2,9 @@ version: '2'
 services:
 
     web:
-        image: venveo/baseimage:7.0-apache
+        image: venveo/baseimage:php7-apache-alpine
         ports:
-            - "80:80"
+            - 80:80
         depends_on:
             - mysql-server
             - redis-server
@@ -12,16 +12,15 @@ services:
             - mysql-server
             - redis-server
         volumes:
-            - .:/var/www
-            - ./build/000-default.conf:/etc/apache2/sites-available/000-default.conf
+            - .:/app
         env_file: .env
 
     mysql-server:
         image: venveo/baseimage:5.7-mysql
         ports:
-            - "3306:3306"
+            - 3306:3306
         volumes:
-            - "./storage/database:/var/lib/mysql"
+            - ./storage/database:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: SuperLongPassword!
             MYSQL_DATABASE: dev_craftcms
