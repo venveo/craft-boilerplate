@@ -17,3 +17,5 @@ npm-debug.log
 !storage/logs/php-fpm/.gitkeep
 .env.staging
 web/mix-manifest.json
+database/
+!database/.gitkeep

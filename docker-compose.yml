@@ -12,7 +12,14 @@ services:
             - mysql-server
             - redis-server
         volumes:
-            - .:/app
+            - ./vendor:/app/vendor
+            - ./web:/app/web
+            - ./plugins:/app/plugins
+            - ./config:/app/config
+            - ./modules:/app/modules
+            - ./templates:/app/templates
+            - ./.env:/app/.env
+            - ./storage:/app/storage
         env_file: .env
 
     mysql-server:
@@ -20,7 +27,7 @@ services:
         ports:
             - 3306:3306
         volumes:
-            - ./storage/database:/var/lib/mysql
+            - ./database:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: SuperLongPassword!
             MYSQL_DATABASE: dev_craftcms
