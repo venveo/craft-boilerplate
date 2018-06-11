@@ -6,6 +6,7 @@ return [
     'removeMetadata' => true,
     'storages' => ['aws'],
     'transformer' => 'craft',
+    'interlace' => 'line',
     'storageConfig' => [
         'aws' => [
             'accessKey' => getenv('AWS_KEY_ID'),
