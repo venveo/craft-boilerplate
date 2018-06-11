@@ -25,7 +25,9 @@
         "aelvan/imager": "^2.0",
         "clubstudioltd/craft-asset-rev": "^6.0",
         "doublesecretagency/craft-cpcss": "^2.1",
-        "yiisoft/yii2-redis": "~2.0.0"
+        "yiisoft/yii2-redis": "~2.0.0",
+        "doublesecretagency/craft-inventory": "v2.x-dev",
+        "studioespresso/craft-seeder": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
