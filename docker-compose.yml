@@ -4,13 +4,16 @@ services:
     web:
         image: venveo/baseimage:php7-apache-alpine
         ports:
-            - 80:80
+            - 8000:80
         depends_on:
             - mysql-server
             - redis-server
         links:
             - mysql-server
             - redis-server
+        cap_add:
+          - SYS_TIME
+          - SYS_NICE
         volumes:
             - ./vendor:/app/vendor
             - ./web:/app/web
