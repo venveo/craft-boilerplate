@@ -1,0 +1,28 @@
+// Tags
+.tag {
+  font-family: $geogrotesqueMedium;
+  padding: 5px 12px;
+  transition: background-color .25s ease;
+
+  &.is-light-text {
+    color: $white;
+  }
+
+  &.is-dark-text {
+    color: $dark-gray;
+  }
+
+  &.is-primary {
+    background-color: $primary-color;
+
+    &.is-hollow {
+      background-color: transparent;
+      border: 1px solid $primary-color;
+
+      &:hover {
+        background: $primary-color;
+        color: $white;
+      }
+    }
+  }
+}

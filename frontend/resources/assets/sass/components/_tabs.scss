@@ -1,0 +1,25 @@
+.tabs-content {
+  background: inherit;
+  border: 0;
+}
+
+.tabs-title {
+
+  & > a {
+    color: $black;
+    font-size: 22px;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  & > a:focus,
+  & > a[aria-selected = 'true'] {
+    background: none;
+    color: $black;
+  }
+
+  & > a:hover {
+    background: none;
+    color: $black;
+  }
+}

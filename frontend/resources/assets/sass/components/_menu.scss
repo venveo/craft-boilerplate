@@ -1,0 +1,144 @@
+// Menu
+// ----
+
+.menu {
+  .submenu-parent {
+    .submenu-parent-item {
+      color: $white;
+    }
+
+    &.is-active {
+
+      .submenu-parent-item {
+        color: $primary-color;
+      }
+
+      .submenu-parent-item::before {
+        background: $primary-color;
+      }
+    }
+  }
+}
+
+// Main-nav site header
+.main-nav {
+  display: none;
+  width: 100%;
+
+  .menu {
+    list-style: none;
+    margin: 0;
+
+    .submenu-parent {
+      display: inline-block;
+      padding: .5rem .35rem;
+
+      // 1280px and up
+      @include breakpoint(1280px up) {
+        padding: 1rem .7rem;
+
+        .submenu-parent-item {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .submenu-parent:hover {
+      .submenu-parent-item::before {
+        transform: scaleX(1);
+      }
+    }
+
+    .is-dropdown-submenu-parent {
+      position: relative;
+
+      .submenu-wrap:not(.submenu-wrap--list) {
+        width: 530px;
+      }
+
+      // Dropdown
+      .submenu-wrap {
+        @include visibility(hide);
+        backface-visibility: hidden;
+        background: $white;
+        box-shadow: 0 1px 2px 0 rgba($black, .5);
+        left: 0;
+        max-width: 250px;
+        position: absolute;
+        text-align: left;
+        top: 100%;
+        transition: opacity .25s ease;
+        width: 250px;
+
+        // inner
+        .submenu-wrap--inner {
+          padding: 25px;
+
+          // separator
+          .separator-section-nav {
+            border-right: 1px solid $medium-gray;
+          }
+        }
+
+        // main list
+        .main-list {
+          list-style: none;
+          margin-left: 0;
+          padding-right: 10px;
+
+          li {
+            line-height: 1.2;
+
+            a {
+              color: $black;
+              font-family: $geogrotesqueMedium;
+              transition: color .25s ease;
+
+            }
+
+            a:hover {
+              color: $primary-color;
+            }
+          }
+
+          li:not(:last-child) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      &:hover {
+        .submenu-wrap {
+          @include visibility(show);
+        }
+      }
+    }
+  }
+  // 1024px and up
+  @include breakpoint(large up) {
+    display: block;
+  }
+}
+
+.submenu-parent-item {
+  font-family: $gothamMedium;
+  position: relative;
+
+  &::before {
+    backface-visibility: hidden;
+    background: $white;
+    bottom: -7px;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: transform .25s ease-in-out;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    font-size: 12px;
+  }
+}

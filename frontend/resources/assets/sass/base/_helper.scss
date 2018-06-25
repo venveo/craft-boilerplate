@@ -1,0 +1,111 @@
+// Base Helpers
+// ---
+p {
+  // small
+  &.is-small {
+    font-size: 14px;
+  }
+
+  // medium
+  &.is-medium {
+    font-size: 15px;
+  }
+
+  // large
+  &.is-large {
+    font-size: 18px;
+  }
+
+  // x-large
+  &.is-xlarge {
+    font-size: 22px;
+  }
+
+  // is bold 1
+  &.is-bold-one {
+    font-family: $gothamBold;
+  }
+}
+
+.has-small-p {
+  p {
+    font-size: 14px;
+  }
+}
+
+.has-medium-p {
+  p {
+    font-size: 15px;
+  }
+}
+
+.has-large-p {
+  p {
+    font-size: 18px;
+  }
+}
+
+// is primary
+// .is-primary {
+//   color: $primary-color;
+// }
+
+// is white
+// .is-white {
+//   color: $white;
+// }
+
+// Letter spacing
+// ---
+// .letter-spacing-0 {
+//   letter-spacing: 0;
+// }
+//
+// .letter-spacing-1 {
+//   letter-spacing: 1px;
+// }
+//
+// .letter-spacing-2 {
+//   letter-spacing: 2px;
+// }
+
+// fonts
+// ---
+// .is-font-light-1 {
+//   font-family: $geogrotesqueLight;
+// }
+//
+// .is-font-medium-1 {
+//   font-family: $geogrotesqueMedium;
+// }
+//
+// .is-font-medium-2 {
+//   font-family: $gothamMedium;
+// }
+
+// blockquote
+// ---
+// blockquote {
+//   line-height: normal;
+//   padding-top: 15px;
+//   position: relative;
+//
+//   &::before {
+//     color: $primary-color;
+//     content: '\201C';
+//     font-family: $geogrotesqueBold;
+//     left: 0;
+//     position: absolute;
+//     top: 0;
+//   }
+//
+//   &.is-big {
+//     font-family: $geogrotesqueUltraLight;
+//     font-size: 45px;
+//     padding-left: 40px;
+//
+//     &::before {
+//       font-size: 58px;
+//     }
+//   }
+// }

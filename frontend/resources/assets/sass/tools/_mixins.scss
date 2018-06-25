@@ -1,0 +1,90 @@
+// Selection
+// ---
+@mixin selection($color, $background) {
+  $prefixes: ('-moz-', '-webkit-', '-o-', '-ms-', '');
+  @each $prefix in $prefixes {
+    &::#{$prefix}selection {
+      background: $background;
+      color: $color;
+    }
+  }
+}
+
+// String Replace
+// ---
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// Font Face
+// ---
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_')
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+// Visible
+// param: `hide` & `show`
+// ---
+
+@mixin visibility($value) {
+  @if $value == hide {
+    opacity: 0;
+    visibility: hidden;
+  } @else if $value == show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Overlay tranparent
+// ---
+@mixin overlay-transparent($color, $opacity, $zindex: auto) {
+  background: rgba($color, $opacity);
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity .3s ease;
+  width: 100%;
+  z-index: $zindex;
+}
+
+// Border
+// ---
+@mixin border($pos, $width, $style, $color) {
+  border-#{pos}: $width $style $color;
+}

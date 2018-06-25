@@ -1,0 +1,53 @@
+// Heading
+// ---
+
+// .h1 {
+//   font-size: 32px;
+//
+//   // 640px and above
+//   @include breakpoint(640px up) {
+//     font-size: 58px;
+//   }
+// }
+//
+// .h2 {
+//   font-size: 28px;
+//
+//   // 640px and above
+//   @include breakpoint(640px up) {
+//     font-size: 40px;
+//   }
+// }
+//
+// .h4 {
+//   font-size: 28px;
+// }
+//
+// .h5 {
+//   font-size: 20px;
+// }
+//
+// .h6 {
+//   font-size: 16px;
+// }
+//
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// .h1,
+// .h2,
+// .h3,
+// .h4,
+// .h5,
+// .h6 {
+//   a {
+//     color: inherit;
+//   }
+//
+//   &.is-medium {
+//     font-family: $gothamMedium;
+//   }
+// }

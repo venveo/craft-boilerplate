@@ -1,0 +1,49 @@
+.table {
+  border-collapse: collapse;
+
+  thead > tr > th,
+  tbody > tr > td {
+    padding: 20px 0;
+  }
+
+  thead {
+    text-align: left;
+
+    // and below
+    @include breakpoint(768px down) {
+      display: none;
+    }
+  }
+
+  thead > tr > th {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  // Stack in mobile
+  &--stack {
+    thead,
+    tbody > tr {
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    tbody > tr,
+    tbody > tr > td {
+      // and below
+      @include breakpoint(768px down) {
+        display: block;
+      }
+    }
+
+    // and below
+    @include breakpoint(768px down) {
+      tbody > tr {
+        padding: 10px 0;
+      }
+
+      tbody > tr > td {
+        padding: 5px 0;
+      }
+    }
+  }
+}
