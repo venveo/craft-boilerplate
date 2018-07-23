@@ -1,0 +1,33 @@
+// Footer nav
+// ---
+.footer-nav {
+  list-style: none;
+  margin-left: 0;
+
+  &--col2 {
+    column-count: 2;
+  }
+
+  li {
+    line-height: 2;
+
+    a {
+      color: $white;
+      font-family: $gothamMedium;
+      transition: color .25s ease;
+    }
+    // 480px and below
+    @include breakpoint(480px down) {
+      a { font-size: 13px; }
+    }
+  }
+
+  li:not(.light-text) > a:hover {
+    color: $primary-color;
+  }
+
+  .light-text > a {
+    font-family: $gothamBook;
+    font-size: 13px;
+  }
+}

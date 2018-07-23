@@ -1,0 +1,18 @@
+// Horizontal scroll
+// ---
+.hscroll {
+  // 1024px and down
+  @include breakpoint(medium down) {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .hscroll-nowrap {
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .item {
+      display: inline-block;
+    }
+  }
+}

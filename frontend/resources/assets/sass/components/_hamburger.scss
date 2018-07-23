@@ -1,0 +1,30 @@
+// Hamburger Menu
+// ---
+.hamburger-menu-icon {
+  display: inline-block;
+  height: 33px;
+  position: relative;
+  transition: background-color .25s ease;
+  width: 31px;
+
+  &::before,
+  &::after {
+    background-color: $white;
+    content: '';
+    display: inline-block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform-origin: 4px 1px;
+    transition: transform .25s ease;
+    width: 31px;
+  }
+
+  &::before {
+    top: 8px;
+  }
+
+  &::after {
+    top: 24px;
+  }
+}

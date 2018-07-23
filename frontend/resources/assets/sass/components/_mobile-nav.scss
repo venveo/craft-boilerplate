@@ -1,0 +1,98 @@
+// Mobile Nav
+// ---
+
+.mobile-nav {
+  @include visibility(hide);
+  backface-visibility: hidden;
+  background: $dark-gray;
+  height: 100%;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  transition: opacity .25s ease-in-out;
+  width: 100%;
+  z-index: 50;
+
+  // 992px and above
+  @include breakpoint(992px up) {
+    @include visibility(hide);
+  }
+}
+
+// Drilldown mobile-nav
+.mobile-nav > .is-drilldown {
+  margin: 20px 20px 40px;
+  top: 90px;
+
+  .menu {
+    margin-left: 0;
+  }
+
+  .menu > li {
+    &.is-drilldown-submenu-parent {
+      // has dropdown menu parent
+      .is-drilldown-anchor-parent {
+        position: relative;
+      }
+
+      .is-drilldown-anchor-parent::after {
+        bottom: 0;
+        content: '\F108';
+        font-family: appicons;
+        height: 26px;
+        left: 0;
+        margin: auto 0;
+        position: absolute;
+        top: 0;
+      }
+    }
+
+    a {
+      background: none;
+      display: inline-block;
+    }
+
+    a:not(.is-drilldown-submenu-anchor) {
+      color: $white;
+      letter-spacing: 1px;
+      padding: 15px 0 15px 20px;
+    }
+  }
+
+  .menu > .is-drilldown-submenu-parent {
+    // Submenu
+    .is-drilldown-submenu {
+      background: $dark-gray;
+      // transition-duration: 1ms;
+
+      // back trigger
+      .js-drilldown-back {
+        border-bottom: 1px solid $white;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .js-drilldown-back::before {
+        color: $white;
+        content: '\F107';
+        font-family: appicons;
+        position: relative;
+        top: 3px;
+      }
+
+      // parent label
+      .parent-label {
+        color: $drowny-color;
+        letter-spacing: 1px;
+        margin: 0 0 5px;
+      }
+
+      .is-drilldown-submenu-anchor {
+        color: $white;
+        line-height: normal;
+        padding: 15px;
+      }
+    }
+  }
+}

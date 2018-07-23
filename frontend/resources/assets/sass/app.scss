@@ -1,86 +1,62 @@
-@charset 'utf-8';
-
-@import 'variables';
-@import 'util/mixins';
-
-@import 'settings';
-@import '~foundation-sites/scss/foundation';
-@import '~motion-ui/motion-ui';
-// Import Vendors CSS
-@import '~slick-carousel/slick/slick';
-// Import CP
-@import 'cp';
-
-@include foundation-global-styles;
-// @include foundation-grid;
-// @include foundation-flex-grid;
+// ITCSS (Inverted Triangle CSS) + Foundation
 //
-@include foundation-xy-grid-classes;
-@include foundation-typography;
-@include foundation-button;
-@include foundation-forms;
-@include foundation-accordion;
-@include foundation-accordion-menu;
-@include foundation-breadcrumbs;
-@include foundation-button-group;
-@include foundation-drilldown-menu;
-@include foundation-dropdown;
-@include foundation-dropdown-menu;
-@include foundation-responsive-embed;
-@include foundation-pagination;
-@include foundation-sticky;
-@include foundation-table;
-@include foundation-tooltip;
-@include foundation-visibility-classes;
-@include foundation-float-classes;
-@include foundation-flex-classes;
-@include foundation-media-object;
-// @include foundation-tabs;
-// @include foundation-badge;
-// @include foundation-menu;
-// @include foundation-menu-icon;
-// @include foundation-title-bar;
-// @include foundation-range-input;
-// @include foundation-callout;
-// @include foundation-card;
-// @include foundation-label;
-// @include foundation-off-canvas;
-// @include foundation-orbit;
-// @include foundation-progress-bar;
-// @include foundation-slider;
-// @include foundation-reveal;
-// @include foundation-thumbnail;
-// @include foundation-switch;
-// @include foundation-close-button;
-// @include foundation-top-bar;
+// *****************************************************
+//   ******************** Foundation *****************
+//     ****************** Settings *****************
+//       **************** Tools ******************
+//         ************** Generic **************
+//           ************ Vendors ************
+//             ********** Base *************
+//               ******** Objects ********
+//                 *****  Components ***
+//                   ***  Trumps *****
+//                     *************
+//                       *********
+//                         *****
+//                           *
 
-@include foundation-prototype-classes;
-
-@include motion-ui-transitions;
-@include motion-ui-animations;
-
-// Util
+// Import Foundation
 // ---
-@import 'util/animate';
+@import 'foundation.app';
 
-// Forms
-// =====
-@import 'forms/index';
+// Settings
+// ---
+// global configurations and variables, like sizes, colors, and fonts.
+@import 'variables';
 
-// Typography
-// ==========
-@import 'typography/index';
+// Tools
+// ---
+// mixins for media queries, font-faces, animations, etc.
+@import 'tools/index';
+
+// Generic
+// ---
+// These include box-sizing, resets, normalize, etc.
+@import 'generic/index';
+
+// Vendors
+// ---
+// Third party css style
+@import 'vendors/index';
+
+// Base / Elements
+// ---
+// Elements refer to all unclassed HTML tags like headings, links, and lists.
+@import 'base/index';
+
+// Objects
+// ---
+// Objects follow OOCSS (Object Oriented CSS) principles.
+// Reusable pieces which can be used in UI composition.
+@import 'objects/index';
 
 // Components
-// ==========
+// ---
+// Pieces of UI that can be reused in more than one spot
 @import 'components/index';
 
-// Partials
-// ========
-@import 'partials/header';
-@import 'partials/footer';
-@import 'partials/main';
-
-// Page Templates
-// ========
-@import 'templates/index';
+// Trumps
+// ---
+// This is where specific templates for each page we create.
+// This is the only place where `!important` is permitted and `id`
+@import 'trumps/index';

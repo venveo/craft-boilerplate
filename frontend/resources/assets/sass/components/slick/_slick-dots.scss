@@ -1,0 +1,73 @@
+// Slick dots custom style
+// ---
+
+// base style slick-dots
+// .slick-dots {
+//   list-style: none;
+//   position: absolute;
+//
+//   li {
+//     display: inline-block;
+//     margin: 0 5px;
+//
+//     button {
+//       border: 1px solid $white;
+//       border-radius: 50%;
+//       color: transparent;
+//       display: block;
+//       height: 12px;
+//       outline: none;
+//       width: 12px;
+//     }
+//
+//     &.slick-active {
+//       button {
+//         background: $white;
+//       }
+//     }
+//   }
+// }
+
+// dots style 1
+// ----
+// .slick-dots-1 {
+//
+//   .slick-dots {
+//     bottom: 40px;
+//     margin: 0;
+//     right: 40px;
+//     text-align: right;
+//     width: 100%;
+//
+//     // 991px and below
+//     @include breakpoint(991px down) {
+//       bottom: 15px;
+//     }
+//   }
+//
+// }
+
+// dots style 2
+// ---
+// .slick-dots-2 {
+//
+//   .slick-dots {
+//     bottom: -32px;
+//     left: 0;
+//     margin: 0;
+//     width: 100%;
+//
+//     li {
+//       display: inline-block;
+//       margin: 0 5px;
+//     }
+//
+//     li > button {
+//       border: 1px solid $secondary-color;
+//     }
+//
+//     .slick-active > button {
+//       background: $secondary-color;
+//     }
+//   }
+// }

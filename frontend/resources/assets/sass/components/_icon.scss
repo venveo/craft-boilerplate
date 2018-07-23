@@ -1,0 +1,27 @@
+// Icon
+// ---
+
+// appicon
+.hamburger-menu-icon,
+.search-icon {
+  color: $white;
+}
+
+// Search trigger icon
+.search-icon {
+  font-size: 18px;
+  max-height: 25px;
+  min-width: 20px;
+  transition: opacity, color .2s ease;
+
+  @include breakpoint(large up) {
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// Mobile nav trigger icon
+.hamburger-menu-icon {
+  min-width: 31px;
+}

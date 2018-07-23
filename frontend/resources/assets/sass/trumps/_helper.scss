@@ -1,0 +1,22 @@
+// Helpers
+// ---
+
+// Borders
+// ---
+// .border-0 {
+//   border: 0;
+// }
+//
+// .border-top-1 {
+//   @include border(top, 1px, solid, $primary-color);
+// }
+//
+// .border-top-2 {
+//   @include border(top, 2px, solid, $primary-color);
+// }
+
+// Box Shadow 1
+// ---
+.has-shadow-1 {
+  box-shadow: 0 20px 30px 0 rgba($black, .2);
+}

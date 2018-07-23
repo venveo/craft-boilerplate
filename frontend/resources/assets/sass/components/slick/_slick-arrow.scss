@@ -1,0 +1,110 @@
+// Custom style for slider and carousel control arrows
+// ========
+
+// Arrow Style 1
+// `slick-control-1` add this to parent element slick
+.slick-control-1 {
+  .slick-arrow {
+    backface-visibility: hidden;
+    color: $white;
+    font-size: 30px;
+    outline: none;
+    overflow-x: hidden;
+    padding: 25px 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition-duration: .25s;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-in-out;
+    z-index: 1;
+
+    // 768px and up
+    @include breakpoint(768px up) {
+      font-size: 60px;
+      height: 70px;
+      padding: 0;
+      width: 50px;
+    }
+
+    &.slick-next::before,
+    &.slick-prev::before {
+      font-family: appicons;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: color .25s ease;
+      z-index: 1;
+    }
+
+    // Prev
+    &.slick-prev {
+      left: 0;
+
+      // 1440px and up
+      @include breakpoint(1440px up) {
+        left: -100px;
+      }
+
+      &::before {
+        content: '\f107';
+      }
+    }
+
+    // Next
+    &.slick-next {
+      right: 0;
+
+      // 1440px and up
+      @include breakpoint(1440px up) {
+        right: -100px;
+      }
+
+      &::before {
+        content: '\f108';
+      }
+    }
+
+    &.slick-prev,
+    &.slick-next {
+      // 1439px and down
+      @include breakpoint(1439px down) {
+        background-color: $primary-color;
+
+        // hover
+        &:hover::before {
+          color: $dark-gray;
+        }
+      }
+    }
+
+    // hover
+    &:hover::before {
+      color: $primary-color;
+    }
+  }
+}
+
+// 769px and above only
+@include breakpoint(769px up) {
+  // On hover
+  &.control-on-hover {
+    .slick-arrow {
+      &.slick-prev {
+        transform: translate3d(-100%, -50%, 0);
+      }
+
+      &.slick-next {
+        transform: translate3d(100%, -50%, 0);
+      }
+    }
+
+    &:hover {
+      .slick-arrow {
+        transform: translate3d(0, -50%, 0);
+      }
+    }
+  }
+}
+
+// END Arrow Style 1

@@ -1,0 +1,46 @@
+// Default Select tag
+// ---
+select {
+  height: 3.438rem;
+  margin: 0 0 1.6rem;
+  padding-left: 15px;
+}
+
+// Custom Select
+// ---
+.select {
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow .5s, border-color .25s ease-in-out;
+
+  // Style 1
+  &--style1 {
+    border: 3px solid $primary-color;
+
+    select {
+      appearance: none;
+      background: none;
+      border: 0;
+      font-size: 22px;
+      margin: 0;
+      overflow: hidden;
+      padding-right: 40px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    &::after {
+      border-color: $dark-gray transparent transparent;
+      border-style: solid;
+      border-width: 5px 4px 0;
+      content: '';
+      height: 0;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+    }
+  }
+}
