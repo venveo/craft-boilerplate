@@ -38,5 +38,7 @@ return [
 
     'runQueueAutomatically' => false,
 
+    'cacheDuration' => 'P1W',
+
     'errorTemplatePrefix' => '_errors/'
 ];
