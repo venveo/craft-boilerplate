@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import { Foundation } from 'foundation-sites/js/foundation.core'
-import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core'
+import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.core.utils'
 import { Box } from 'foundation-sites/js/foundation.util.box'
 import { onImagesLoaded } from 'foundation-sites/js/foundation.util.imageLoader'
 import { Keyboard } from 'foundation-sites/js/foundation.util.keyboard'
@@ -26,11 +26,11 @@ import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsi
 // import { Equalizer } from 'foundation-sites/js/foundation.equalizer'
 // import { Interchange } from 'foundation-sites/js/foundation.interchange'
 // import { Magellan } from 'foundation-sites/js/foundation.magellan'
-// import { Reveal } from 'foundation-sites/js/foundation.reveal';
-// import { Slider } from 'foundation-sites/js/foundation.slider';
+// import { Reveal } from 'foundation-sites/js/foundation.reveal'
+// import { Slider } from 'foundation-sites/js/foundation.slider'
 // import { Orbit } from 'foundation-sites/js/foundation.orbit'
-// import { Sticky } from 'foundation-sites/js/foundation.sticky';
-// import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
+// import { Sticky } from 'foundation-sites/js/foundation.sticky'
+// import { Tooltip } from 'foundation-sites/js/foundation.tooltip'
 
 
 Foundation.addToJquery($)
@@ -81,21 +81,21 @@ Foundation.plugin(Toggler, 'Toggler')
 Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs')
 
 // Foundation.plugin(Abide, 'Abide')
-
+//
 // Foundation.plugin(Dropdown, 'Dropdown')
-
+//
 // Foundation.plugin(Orbit, 'Orbit')
-
+//
 // Foundation.plugin(Reveal, 'Reveal')
-
+//
 // Foundation.plugin(Slider, 'Slider')
-
+//
 // Foundation.plugin(Sticky, 'Sticky')
-
+//
 // Foundation.plugin(Tooltip, 'Tooltip')
-
+//
 // Foundation.plugin(Equalizer, 'Equalizer')
-
+//
 // Foundation.plugin(Interchange, 'Interchange')
-
+//
 // Foundation.plugin(Magellan, 'Magellan')
