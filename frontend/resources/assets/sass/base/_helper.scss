@@ -1,54 +1,5 @@
 // Base Helpers
 // ---
-p {
-  // small
-  &.is-small {
-    font-size: 14px;
-  }
-
-  // medium
-  &.is-medium {
-    font-size: 15px;
-  }
-
-  // large
-  &.is-large {
-    font-size: 18px;
-  }
-
-  // x-large
-  &.is-xlarge {
-    font-size: 22px;
-  }
-}
-
-.has-small-p {
-  p {
-    font-size: 14px;
-  }
-}
-
-.has-medium-p {
-  p {
-    font-size: 15px;
-  }
-}
-
-.has-large-p {
-  p {
-    font-size: 18px;
-  }
-}
-
-// is primary
-// .is-primary {
-//   color: $primary-color;
-// }
-
-// is white
-// .is-white {
-//   color: $white;
-// }
 
 // Letter spacing
 // ---

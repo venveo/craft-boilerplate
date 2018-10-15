@@ -26,7 +26,7 @@
 // Font Face
 // ---
 
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg, $display: auto) {
   $src: null;
 
   $extmods: (
@@ -50,7 +50,80 @@
     font-style: $style;
     font-weight: $weight;
     src: $src;
+    font-display: $display;
   }
+}
+
+// Font Size
+// ---
+// This will output `rem` unit font-size and `px` as fallback
+@function calculate-rem($size) {
+  $remSize: #{$size / $global-font-size * 1};
+  @return #{$remSize}rem;
+}
+
+@mixin font-size($size) {
+  font-size: #{$size}px;
+  font-size: calculate-rem($size);
+}
+
+// Caret Arrow
+// ---
+// Default: caret-arrow($medium-gray, right)
+@mixin caret-arrow($color: $medium-gray, $direction: 'right') {
+  height: 0;
+  transition-duration: .25s;
+  transition-property: border-color, transform, opacity, visibility;
+  transition-timing-function: ease;
+  width: 0;
+
+  @if $direction == 'up' {
+    border-color: transparent transparent $color;
+    border-style: solid;
+    border-width: 0 4px 6px;
+  }
+
+  @if $direction == 'down' {
+    border-color: $color transparent transparent;
+    border-style: solid;
+    border-width: 6px 4px 0;
+  }
+
+  @if $direction == 'right' {
+    border-color: transparent transparent transparent $color;
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+  }
+
+  @if $direction == 'left' {
+    border-color: transparent $color transparent transparent;
+    border-style: solid;
+    border-width: 4px 6px 4px 0;
+  }
+
+}
+
+// Caret Color
+// ---
+// Default: caret-color($medium-gray, right)
+@mixin caret-color($color: $medium-gray, $direction: 'right') {
+
+  @if $direction == 'up' {
+    border-color: transparent transparent $color;
+  }
+
+  @if $direction == 'down' {
+    border-color: $color transparent transparent;
+  }
+
+  @if $direction == 'right' {
+    border-color: transparent transparent transparent $color;
+  }
+
+  @if $direction == 'left' {
+    border-color: transparent $color transparent transparent;
+  }
+
 }
 
 // Visible
