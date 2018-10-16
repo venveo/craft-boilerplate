@@ -10,7 +10,7 @@ window.$ = $
 window.jQuery = $
 
 const setupPages = (function() {
-    components.siteUI()
+    components.globalJS()
 })()
 
 const mainInit = (function() {
