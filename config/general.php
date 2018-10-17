@@ -19,6 +19,9 @@ return [
     // Whether "index.php" should be visible in URLs
     'omitScriptNameInUrls' => true,
 
+    // Gif sanitation tends to blow up servers due to high memory consumption
+    'transformGifs' => false,
+
     // Control Panel trigger word
     'cpTrigger' => 'admin',
 
