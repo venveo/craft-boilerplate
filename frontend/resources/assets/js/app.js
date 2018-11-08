@@ -1,9 +1,6 @@
 import $ from 'jquery'
 import * as components from './components'
-//import Foundation from 'foundation-sites';
-// If you want to pick and choose which modules to include, comment out the above and uncomment
-// the line below
-import './lib/foundation-explicit-pieces'
+import './lib/foundation.plugins'
 import './fonts/app.font'
 
 window.$ = $
@@ -11,6 +8,7 @@ window.jQuery = $
 
 const setupPages = (function() {
     components.globalJS()
+    components.pagesJS()
 })()
 
 const mainInit = (function() {
@@ -20,7 +18,6 @@ const mainInit = (function() {
 function Main() {
     this.init = function() {
         $(document).ready(mainInit)
-        $(document).foundation()
     }
     return {
         init: this.init
