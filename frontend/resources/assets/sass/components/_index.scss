@@ -1,8 +1,9 @@
 // Components
 // ---
+// @import 'menu';
+// @import 'mobile-nav';
 // @import 'button';
 // @import 'button-group';
-// @import 'callout';
 // @import 'column-count';
 // @import 'container';
 // @import 'footer-nav';
@@ -12,15 +13,15 @@
 // @import 'icon';
 // @import 'link-arrow';
 // @import 'media-box';
-// @import 'menu';
-// @import 'mobile-nav';
 // @import 'newsletter';
 // @import 'search';
-// @import 'slick';
+// @import 'swiper';
 // @import 'social';
 // @import 'table';
 // @import 'tabs';
+// @import 'pagination';
 // @import 'tag';
 
+@import 'ui/index';
 @import 'forms/index';
 @import 'partials/index';

@@ -2,97 +2,103 @@
 // ---
 
 .mobile-nav {
-  @include visibility(hide);
-  backface-visibility: hidden;
-  background: $dark-gray;
-  height: 100%;
-  left: 0;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  transition: opacity .25s ease-in-out;
-  width: 100%;
-  z-index: 50;
+  overflow-y: initial;
 
-  // 992px and above
-  @include breakpoint(992px up) {
+  // 1024px and above
+  @include breakpoint(large up) {
     @include visibility(hide);
   }
-}
 
-// Drilldown mobile-nav
-.mobile-nav > .is-drilldown {
-  margin: 20px 20px 40px;
-  top: 90px;
-
-  .menu {
+  ul {
+    list-style: none;
     margin-left: 0;
   }
 
-  .menu > li {
-    &.is-drilldown-submenu-parent {
-      // has dropdown menu parent
-      .is-drilldown-anchor-parent {
-        position: relative;
-      }
+  ul > li,
+  ul > li > a {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 48px;
+  }
 
-      .is-drilldown-anchor-parent::after {
-        bottom: 0;
-        content: '\F108';
-        font-family: appicons;
-        height: 26px;
-        left: 0;
-        margin: auto 0;
+  ul > li {
+    text-align: center;
+  }
+
+  ul > li > a {
+    font-weight: 500;
+    letter-spacing: rem-calc(1);
+    padding: .3rem 2rem;
+    width: 100%;
+  }
+
+  ul > li:not(.is-accordion-submenu-item) {
+    border-bottom: 2px solid $white;
+  }
+
+  // `li` parent which has dropdown item
+  .is-accordion-submenu-parent {
+    position: relative;
+
+    .submenu-toggle {
+      color: $transparent;
+      cursor: pointer;
+      height: 48px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 32px;
+
+      &::before {
+        @include caret-arrow($primary-color, down);
+        content: '';
+        left: 50%;
         position: absolute;
-        top: 0;
-      }
-    }
-
-    a {
-      background: none;
-      display: inline-block;
-    }
-
-    a:not(.is-drilldown-submenu-anchor) {
-      color: $white;
-      letter-spacing: 1px;
-      padding: 15px 0 15px 20px;
-    }
-  }
-
-  .menu > .is-drilldown-submenu-parent {
-    // Submenu
-    .is-drilldown-submenu {
-      background: $dark-gray;
-      // transition-duration: 1ms;
-
-      // back trigger
-      .js-drilldown-back {
-        border-bottom: 1px solid $white;
-        margin-bottom: 15px;
-        text-transform: uppercase;
+        top: 50%;
+        transform: translate(-50%, -50%);
       }
 
-      .js-drilldown-back::before {
-        color: $white;
-        content: '\F107';
-        font-family: appicons;
-        position: relative;
-        top: 3px;
+      &[aria-expanded='true']::before {
+        @include caret-arrow($primary-color, up);
       }
 
-      // parent label
-      .parent-label {
-        color: $drowny-color;
-        letter-spacing: 1px;
-        margin: 0 0 5px;
-      }
-
-      .is-drilldown-submenu-anchor {
-        color: $white;
-        line-height: normal;
-        padding: 15px;
+      > .submenu-toggle-text {
+        display: none;
       }
     }
   }
+
+  // Accordion submenu
+  .is-accordion-submenu {
+    max-width: 100%;
+
+    .submenu-toggle {
+      &::before {
+        @include caret-arrow($medium-gray, down);
+      }
+
+      &[aria-expanded='true']::before {
+        @include caret-arrow($medium-gray, up);
+      }
+    }
+  }
+
+  .is-accordion-submenu > li > a {
+    @include font-size(14);
+    color: $medium-gray;
+  }
+}
+
+// Inner wrap that handle background-color custom style for offcanvas
+.mobile-nav--innerwrap {
+  background-image: linear-gradient(to bottom, #f9f9f9, $white 100%);
+  border: 2px solid $white;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .05);
+  height: 100%;
+}
+
+.mobile-nav--menu > li > a {
+  display: inline-block;
 }

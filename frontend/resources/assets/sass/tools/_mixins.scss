@@ -27,7 +27,6 @@
 // ---
 
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg, $display: auto) {
-  $src: null;
 
   $extmods: (
     eot: '?',
@@ -38,6 +37,7 @@
     otf: 'opentype',
     ttf: 'truetype'
   );
+  $src: null;
 
   @each $ext in $exts {
     $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
@@ -46,11 +46,11 @@
   }
 
   @font-face {
+    font-display: $display;
     font-family: quote($name);
     font-style: $style;
     font-weight: $weight;
     src: $src;
-    font-display: $display;
   }
 }
 
@@ -58,7 +58,7 @@
 // ---
 // This will output `rem` unit font-size and `px` as fallback
 @function calculate-rem($size) {
-  $remSize: #{$size / $global-font-size * 1};
+  $remSize: #{$size / 16 * 1};
   @return #{$remSize}rem;
 }
 
@@ -138,6 +138,11 @@
     opacity: 1;
     visibility: visible;
   }
+}
+
+// Keep Aspect Ratio of container
+@mixin aspect-ratio($width, $height) {
+  padding-bottom: ($height / $width) * 100%;
 }
 
 // Overlay tranparent
