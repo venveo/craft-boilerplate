@@ -1,40 +1,32 @@
-[type='text'],
-[type='password'],
-[type='date'],
-[type='email'],
-[type='number'],
-[type='search'],
-[type='tel'],
-textarea {
-  font-size: 18px;
-  height: auto;
-  letter-spacing: 1px;
-  line-height: 1.94;
-  margin: 0 0 1.6rem;
-  padding: .688rem 1rem;
-
-  &.is-white {
-    color: $white;
-  }
-}
-
-[type='search'] {
-  margin-bottom: 0;
-}
-
-// Input form
-.input-form {
-  margin: 0 0 1.6rem;
-
-  input,
-  textarea {
-    margin-bottom: 0;
-  }
-
-  &.is-transparent {
-    input,
-    textarea {
-      background: none;
-    }
-  }
-}
+// [type='text'],
+// [type='password'],
+// [type='date'],
+// [type='email'],
+// [type='number'],
+// [type='search'],
+// [type='tel'] {
+//   // set custom height for inputs excluding `textarea`
+//   height: rem-calc(54);
+// }
+//
+// [type='text'],
+// [type='password'],
+// [type='date'],
+// [type='email'],
+// [type='number'],
+// [type='search'],
+// [type='tel'],
+// textarea {
+//
+//   &:focus {
+//
+//   }
+// }
+//
+// input,
+// textarea {
+//   // placeholder set custom font
+//   &::placeholder {
+//     font-weight: 400;
+//   }
+// }

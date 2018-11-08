@@ -4,54 +4,76 @@
 @import '~foundation-sites/scss/foundation';
 // @import '~motion-ui/motion-ui';
 
+// Global styles
+// ---
 @include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+
+// Grids
+// ---
+@include foundation-xy-grid-classes;
 // @include foundation-grid;
 // @include foundation-flex-grid;
-//
-@include foundation-xy-grid-classes;
-@include foundation-typography;
-@include foundation-button;
-@include foundation-button-group;
-@include foundation-forms;
-@include foundation-accordion;
-@include foundation-accordion-menu;
-@include foundation-breadcrumbs;
-@include foundation-drilldown-menu;
-@include foundation-responsive-embed;
-@include foundation-tabs;
-@include foundation-float-classes;
-@include foundation-flex-classes;
-// @include foundation-pagination;
-// @include foundation-visibility-classes;
-// @include foundation-sticky;
-// @include foundation-media-object;
-// @include foundation-dropdown;
-// @include foundation-table;
-// @include foundation-tooltip;
-// @include foundation-dropdown-menu;
-// @include foundation-badge;
-// @include foundation-menu;
-// @include foundation-menu-icon;
-// @include foundation-title-bar;
-// @include foundation-range-input;
-// @include foundation-callout;
-// @include foundation-card;
+
+// Generic components
+// ---
+// @include foundation-button;
+// @include foundation-button-group;
+// @include foundation-close-button;
 // @include foundation-label;
-// @include foundation-off-canvas;
-// @include foundation-orbit;
 // @include foundation-progress-bar;
 // @include foundation-slider;
-// @include foundation-reveal;
-// @include foundation-thumbnail;
 // @include foundation-switch;
-// @include foundation-close-button;
+// @include foundation-table;
+
+// Basic components
+// ---
+// @include foundation-badge;
+// @include foundation-breadcrumbs;
+// @include foundation-callout;
+// @include foundation-card;
+// @include foundation-dropdown;
+// @include foundation-pagination;
+// @include foundation-tooltip;
+
+// Containers
+// ---
+// @include foundation-accordion;
+// @include foundation-media-object;
+// @include foundation-orbit;
+// @include foundation-responsive-embed;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
+
+// Menu-based containers
+// ---
+// @include foundation-menu;
+// @include foundation-menu-icon;
+// @include foundation-accordion-menu;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown-menu;
+
+// Layout components
+// ---
+@include foundation-off-canvas;
+// @include foundation-reveal;
+// @include foundation-sticky;
+// @include foundation-title-bar;
 // @include foundation-top-bar;
 
-// @include foundation-prototype-classes;
+// Helpers
+// ---
+// @include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
 
-@include foundation-prototype-separator;
-@include foundation-prototype-sizing;
+// Prototype Utilities
+// ---
 @include foundation-prototype-spacing;
+// @include foundation-prototype-sizing;
+// @include foundation-prototype-separator;
+// @include foundation-prototype-typescale;
 // @include foundation-prototype-text-utilities;
 // @include foundation-prototype-text-transformation;
 // @include foundation-prototype-text-decoration;
@@ -67,5 +89,7 @@
 // @include foundation-prototype-border-box;
 // @include foundation-prototype-border-none;
 
+// Motion UI
+// ---
 // @include motion-ui-transitions;
 // @include motion-ui-animations;

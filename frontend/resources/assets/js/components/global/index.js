@@ -3,15 +3,14 @@
 // ----------------
 // This is UI modules for Global instances
 // ---------------------------------------------------------------
-// import banner from './banner'
-// import headroomInit from './headroom-init'
-// import toggleIcon from './toggle-icon'
-// import footer from './footer'
-// import slickInit from './slick'
-// import modal from './modal'
+// import mobileNav from './mobile-nav'
+// import headroomJS from './headroom'
+// import swiperModules from './swiper'
 
 function init() {
+    // mobileNav()
     // slickInit()
+    // headroomJS()
 }
 
 export default init

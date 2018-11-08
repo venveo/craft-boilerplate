@@ -3,16 +3,131 @@ extends ../_layouts/default
 //- Set Title
 prepend headtitle
   - var title = 'Styleguide'
-  
-//- Append custom style for this template
-append styles
-  //-<link rel="stylesheet" href="assets/css/.css" />
 
 block content
   <div class="page-styleguide">
-    <h1>Styleguide!</h1>
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell large-6">
+          <div class="guide-title font-regular-3 margin-bottom-2">Typography</div>
+          
+          <h1>This is an H1 Heading</h1>
+          <h2>This is an H2 Heading</h2>
+          <h3>This is an H3 Heading</h3>
+          <h4>This is an H4 Heading</h4>
+          <h5>This is an H5 Heading</h5>
+          <h6>This is an H6 Heading</h6>
+          
+          <p>Eu legam aliqua duis consequat ea ab culpa malis ab laborum, magna id incididunt, do incididunt id eiusmod, export fabulas nam mandaremus ita excepteur tempor ut mandaremus cohaerescant, esse et voluptate qui quid, fabulas transferrem e ingeniis. Se iis amet arbitror hic eiusmod qui quibusdam. Ubi ingeniis praesentibus, aut aute quis cillum fabulas.Quorum an se minim ingeniis do iis commodo sempiternum a quo litteris arbitrantur, irure id ab velit expetendis, legam pariatur appellat, litteris si proident, laboris quem eiusmod, proident cohaerescant nam nostrud. An ubi sunt elit summis, nescius export ut excepteur sempiternum. De cillum tamen esse constias. Eram aut expetendis, aliquip est litteris, singulis ubi velit, se quis nostrud.Lorem2</p>
+          //- <a href="#" class="link-caret link-caret--before letter-spacing-1"><span aria-label="arrow caret link" class="caret caret--right"></span> LINK CARET</a>
+        </div>
+        <div class="cell large-6">
+          <div class="guide-title font-regular-3 margin-bottom-2">Color Palette</div>
+          
+          <div class="grid-x grid-margin-x sg-color-palette">
+            <div class="cell medium-3">
+              <div class="sg-color-palette--color color1"></div>
+            </div>
+            <div class="cell medium-3">
+              <div class="sg-color-palette--color color2"></div>
+            </div>
+            <div class="cell medium-3">
+              <div class="sg-color-palette--color color3"></div>
+            </div>
+            <div class="cell medium-3">
+              <div class="sg-color-palette--color color4"></div>
+            </div>
+            <div class="cell medium-3">
+              <div class="sg-color-palette--color color5"></div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="cell margin-bottom-3">
+          <div class="guide-title font-regular-3 margin-bottom-2">Fonts</div>
+
+          //- <h1 class="font-acherus-grotesque-reg">This is Acherus Grotesque Regular font</h1>
+        </div>
+        <div class="cell margin-bottom-3">
+          <div class="guide-title font-acherus-grotesque-rg margin-bottom-2">Buttons</div>
+          
+          <div class="grid-x align-center">
+            <div class="cell shrink">
+              <div class="grid-x grid-margin-x text-center">
+                <div class="cell">
+                  <p><small>Button Default</small></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cell margin-bottom-3">
+          <div class="guide-title font-acherus-grotesque-rg margin-bottom-2">Form Elements</div>
+          
+          <div class="grid-container">
+            <div class="grid-container">
+              <div class="grid-x align-center">
+                <div class="cell large-9">
+                  <form>
+                    <div class="grid-x grid-padding-x">
+                      <div class="cell medium-6 margin-bottom-2">
+                        <label class="form-label">Name
+                          <input type="text" placeholder="First Name" />
+                        </label>
+                      </div>
+                      <div class="cell medium-6 margin-bottom-2">
+                        <label class="form-label">Email
+                          <input type="email" placeholder="jsmith87@gmail.com" />
+                        </label>
+                      </div>
+                      <div class="cell margin-bottom-1">
+                        <label class="form-label">Tell us a little bit about your company and why you'd like to sponsor us!
+                          <textarea placeholder="Type message here..."></textarea>
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        //- <div class="cell">
+        //-   <div class="guide-title font-regular-3 margin-bottom-2">Breadcrumbs</div>
+        //- 
+        //-   <div class="grid-container">
+        //-     <div class="grid-x align-center">
+        //-       <div class="cell large-6">
+        //-         //- Breadcrumbs
+        //-         <nav aria-label="You are here:" role="navigation">
+        //-           <ul class="breadcrumbs">
+        //-             <li><a href="#">Home</a></li>
+        //-             <li><a href="#">Features</a></li>
+        //-             <li>Current</li>
+        //-           </ul>
+        //-         </nav>
+        //-       </div>
+        //-     </div>
+        //-   </div>
+        //- </div>
+      </div>
+    </div>
+    
+    <div class="grid-x">
+      
+      <div class="cell margin-bottom-3">
+        <div class="guide-title font-acherus-grotesque-rg margin-bottom-2">Blockquote</div>
+        
+        <div class="grid-container">
+          <div class="blockquote-container">
+            <!-- blockquotes -->
+            <blockquote class="blockquote blockquote--default">SOME CONTENT HERE. <cite>Author Nate</cite></blockquote>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
   </div>
-  
-//- Append custom script for this template
-append scripts
-  //-<script src="assets/js/.js"></script>

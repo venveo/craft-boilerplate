@@ -1,8 +1,17 @@
 // Base tags
 // ---
 
+html,
 body {
   overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  letter-spacing: rem-calc(.84);
 }
 
 // Used to negate browser's default of outline on focus for tabs
@@ -11,4 +20,16 @@ button:focus,
 input:focus,
 textarea:focus {
   outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  > a {
+    color: inherit;
+    transition: color .25s ease;
+  }
 }

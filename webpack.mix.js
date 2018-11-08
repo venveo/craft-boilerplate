@@ -16,15 +16,19 @@ if ( env !== 'frontend' && process.env.SERVER_NAME !== undefined ) {
 // browserSync Files
 const bsFiles = [
     srcTplPath + '/**/*.twig',
+    srcTplPath + '/**/*.pug',
     distPath + '/**/*.html',
     srcAssetPath + '/js/**/*.jsx',
     distPath + '/assets/css/**/*.css',
     distPath + '/assets/js/**/*.js'
 ]
 
+// Disable the notification
+mix.disableNotifications()
+
 // Extract jquery to the vendor.js file
 // Feel free to add any other vendor dependencies that are rarely updated
-mix.extract([ 'jquery', 'what-input', 'headroom.js', 'imagesloaded', 'isotope-layout', 'slick-carousel', 'foundation-sites' ])
+mix.extract([ 'jquery', 'what-input', 'swiper', 'foundation-sites' ])
     .autoload({
         jquery: ['$', 'window.jQuery', 'jQuery', 'window.$', 'jquery', 'window.jquery'],
         'foundation-sites': ['$.foundation', 'window.jQuery.foundation', 'jQuery.foundation', 'window.$', 'jquery.foundation', 'window.jquery.foundation']
@@ -42,8 +46,7 @@ mix
     .copyDirectory(srcAssetPath + '/images', distPath + '/assets/images')
     .copyDirectory(srcAssetPath + '/fonts', distPath + '/assets/fonts')
 if( env === 'frontend' ){
-    // Compile pug pages, Note: output var paths doesn't work
-    mix.pug(srcTplPath + '/_pages/**/*.pug', '../../../dist')
+    mix.pug(srcTplPath + '/_pages/*.pug', '../../../dist')
 }
 
 // Make sure we babelify proper modules and create font files
@@ -52,7 +55,7 @@ mix.webpackConfig({
         rules: [
             {
                 test: /\.js?$/,
-                exclude: /node_modules\/(?!(foundation-sites)\/).*/,
+                exclude: /node_modules\/(?!(foundation-sites|dom7|ssr-window|swiper)\/).*/,
                 use: [{
                     loader: 'babel-loader',
                     options: mix.config.babel()

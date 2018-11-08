@@ -1,51 +1,7 @@
 // .outer-site-wrap {
-
-  // Active Serch
-  // &.active-search {
-  //   .header-search {
-  //     @include visibility(show);
-  //   }
-  //
-  //   .sh-section:not(.sh-section--search) {
-  //     @include visibility(hide);
-  //   }
-  //
-  //   .sh-section--search {
-  //     button {
-  //       .appicon-search::before {
-  //         content: '\F104';
-  //       }
-  //     }
-  //   }
-  // }
-
-  // Active Mobile menu
-  // &.active-hamburger {
-  //   .hamburger-menu-icon {
-  //     background-color: transparent;
-  //   }
-  //
-  //   .hamburger-menu-icon::before {
-  //     transform: rotate(45deg);
-  //   }
-  //
-  //   .hamburger-menu-icon::after {
-  //     transform: rotate(-45deg);
-  //   }
-  //
-  //   // 1023px and below
-  //   @include breakpoint(medium down) {
-  //     .site-header {
-  //       transform: none;
-  //
-  //       .search-icon {
-  //         @include visibility(hide);
-  //       }
-  //     }
-  //
-  //     .mobile-nav {
-  //       @include visibility(show);
-  //     }
-  //   }
-  // }
+//   padding-top: rem-calc(98);
 // }
+
+.main-wrap {
+  min-height: 350px;
+}
