@@ -13,21 +13,19 @@
     "require": {
         "php": "^7.1",
         "predis/predis": "^1.1",
+        "yiisoft/yii2-redis": "~2.0.0",
         "craftcms/cms": "^3.0.0",
         "vlucas/phpdotenv": "^2.4.0",
         "craftcms/aws-s3": "^1.0",
         "craftcms/element-api": "^2.5",
         "craftcms/mailgun": "^1.0",
-        "craftcms/redactor": "^1.0",
+        "craftcms/redactor": "^2.0",
         "charliedev/element-map": "^1.0",
         "mmikkel/cp-field-inspect": "^1.0",
         "nystudio107/craft-eagerbeaver": "^1.0",
         "aelvan/imager": "^2.0",
         "clubstudioltd/craft-asset-rev": "^6.0",
-        "doublesecretagency/craft-cpcss": "^2.1",
-        "yiisoft/yii2-redis": "~2.0.0",
-        "doublesecretagency/craft-inventory": "v2.x-dev",
-        "studioespresso/craft-seeder": "dev-master"
+        "doublesecretagency/craft-cpcss": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
