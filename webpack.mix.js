@@ -1,6 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const mix = require('laravel-mix')
-mix.pug = require('laravel-mix-pug')
+require('./frontend/resources/assets/js/loaders/laravel-mix-handlebars')
 
 const env = process.env.NODE_ENV
 
@@ -16,7 +16,7 @@ if ( env !== 'frontend' && process.env.SERVER_NAME !== undefined ) {
 // browserSync Files
 const bsFiles = [
     srcTplPath + '/**/*.twig',
-    srcTplPath + '/**/*.pug',
+    srcTplPath + '/**/*.hbs',
     distPath + '/**/*.html',
     srcAssetPath + '/js/**/*.jsx',
     distPath + '/assets/css/**/*.css',
@@ -46,7 +46,12 @@ mix
     .copyDirectory(srcAssetPath + '/images', distPath + '/assets/images')
     .copyDirectory(srcAssetPath + '/fonts', distPath + '/assets/fonts')
 if( env === 'frontend' ){
-    mix.pug(srcTplPath + '/_pages/*.pug', '../../../dist')
+    mix.hbs({
+        layoutsDir: srcTplPath + '/layouts', // Base layout of html structure. [Requirement]
+        partialsDir: srcTplPath + '/partials', // This is where your partial html component.
+        pagesDir: srcTplPath + '/pages', // This is where your partial html page content `{{> body}}`.
+        distDir: distPath // Public dir where to output the compiled html pages. [Requirement]
+    })
 }
 
 // Make sure we babelify proper modules and create font files
