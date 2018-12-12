@@ -28,7 +28,7 @@ mix.disableNotifications()
 
 // Extract jquery to the vendor.js file
 // Feel free to add any other vendor dependencies that are rarely updated
-mix.extract([ 'jquery', 'what-input', 'swiper', 'foundation-sites' ])
+mix.extract([ 'jquery', 'what-input', 'swiper', 'foundation-sites', 'custom-event-polyfill', 'url-polyfill' ])
     .autoload({
         jquery: ['$', 'window.jQuery', 'jQuery', 'window.$', 'jquery', 'window.jquery'],
         'foundation-sites': ['$.foundation', 'window.jQuery.foundation', 'jQuery.foundation', 'window.$', 'jquery.foundation', 'window.jquery.foundation']
