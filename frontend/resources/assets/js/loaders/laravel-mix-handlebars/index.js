@@ -160,6 +160,8 @@ class mixHandlebars {
             // Unregister current partial `body` to register new partial `body` context
             Handlebars.unregisterPartial('body')
         })
+
+        return this
     }
 
     /**
@@ -177,14 +179,9 @@ class mixHandlebars {
         });
 
         fs.writeFile(this.distDir+'/'+filename+'.html', compiledHtmlTemplate, function(err) {
-          if(err) {
-              return console.log(err);
-          }
+            if (err) return cb(err);
         })
     }
-
-    // TODO
-    // webpackRules() {}
 }
 
 mix.extend('hbs', new mixHandlebars())
