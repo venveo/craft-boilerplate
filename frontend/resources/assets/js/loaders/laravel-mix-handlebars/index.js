@@ -1,6 +1,7 @@
 const mix = require('laravel-mix')
 const Handlebars = require('handlebars')
 const path =  require('path')
+const mkdirp = require('mkdirp');
 const fs = require('fs')
 
 class mixHandlebars {
@@ -169,9 +170,17 @@ class mixHandlebars {
      *
      */
     renderTemplate(filename, compiledHtmlTemplate) {
-        console.log(filename+'.html')
-        console.log(compiledHtmlTemplate)
-        // TODO
+        // console.log(filename+'.html')
+        // console.log(compiledHtmlTemplate)
+        mkdirp(this.distDir, function (err) {
+            if (err) return cb(err);
+        });
+
+        fs.writeFile(this.distDir+'/'+filename+'.html', compiledHtmlTemplate, function(err) {
+          if(err) {
+              return console.log(err);
+          }
+        })
     }
 
     // TODO

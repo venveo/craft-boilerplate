@@ -205,6 +205,6 @@ else {
 
 mix.options({
     hmrOptions: {
-        host: 'local.foxblocks.com'
+        host: 'local.sitename.com'
     }
 })
