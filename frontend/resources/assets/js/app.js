@@ -1,7 +1,5 @@
-import $ from 'jquery'
 import * as components from './components'
 import './lib/foundation.plugins'
-import './fonts/app.font'
 
 window.$ = $
 window.jQuery = $
@@ -18,6 +16,7 @@ const mainInit = (function() {
 function Main() {
     this.init = function() {
         $(document).ready(mainInit)
+        $(document).foundation()
     }
     return {
         init: this.init

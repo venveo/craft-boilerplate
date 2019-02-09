@@ -1,0 +1,43 @@
+/* Scrollbar */
+.swiper-scrollbar {
+    -ms-touch-action: none;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    position: relative;
+
+    .swiper-container-horizontal > & {
+        bottom: 3px;
+        height: 5px;
+        left: 1%;
+        position: absolute;
+        width: 98%;
+        z-index: 50;
+    }
+
+    .swiper-container-vertical > & {
+        height: 98%;
+        position: absolute;
+        right: 3px;
+        top: 1%;
+        width: 5px;
+        z-index: 50;
+    }
+}
+
+.swiper-scrollbar-drag {
+    background: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    height: 100%;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.swiper-scrollbar-cursor-drag {
+    cursor: move;
+}
+
+.swiper-scrollbar-lock {
+    display: none;
+}

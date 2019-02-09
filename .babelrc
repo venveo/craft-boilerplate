@@ -1,29 +1,17 @@
 {
     "presets": [
-        ["env",
+        [
+            "@babel/preset-env",
             {
-                "modules": false,
-                "targets": {
-                    "browsers": [
-                        "> 0.25%"
-                    ]
-                }
+                "useBuiltIns": "usage"
             }
-        ],
-        "react"
+        ]
     ],
     "compact": true,
     "plugins": [
-        "transform-es2015-template-literals",
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "transform-object-rest-spread",
-        [
-            "transform-runtime",
-            {
-                "polyfill": true,
-                "helpers": false
-            }
-        ]
+        "@babel/plugin-transform-template-literals",
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        "@babel/plugin-proposal-class-properties",
+        ["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }]
     ]
 }

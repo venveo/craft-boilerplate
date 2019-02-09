@@ -1,0 +1,57 @@
+.swiper-button-next,
+.swiper-button-prev {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 27px 44px;
+    cursor: pointer;
+    height: 44px;
+    margin-top: -22px;
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    z-index: 10;
+
+    &.swiper-button-disabled {
+        cursor: auto;
+        opacity: .35;
+        pointer-events: none;
+    }
+}
+
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+    background-image: url(map-get($sprites, 'swiper-nav-prev'));
+    left: 10px;
+    right: auto;
+}
+
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+    background-image: url(map-get($sprites, 'swiper-nav-next'));
+    left: auto;
+    right: 10px;
+}
+
+.swiper-button-prev.swiper-button-white,
+.swiper-container-rtl .swiper-button-next.swiper-button-white {
+    background-image: url(map-get($sprites, 'swiper-nav-prev-white'));
+}
+
+.swiper-button-next.swiper-button-white,
+.swiper-container-rtl .swiper-button-prev.swiper-button-white {
+    background-image: url(map-get($sprites, 'swiper-nav-prev-white'));
+}
+
+.swiper-button-prev.swiper-button-black,
+.swiper-container-rtl .swiper-button-next.swiper-button-black {
+    background-image: url(map-get($sprites, 'swiper-nav-next-black'));
+}
+
+.swiper-button-next.swiper-button-black,
+.swiper-container-rtl .swiper-button-prev.swiper-button-black {
+    background-image: url(map-get($sprites, 'swiper-nav-next-black'));
+}
+
+.swiper-button-lock {
+    display: none;
+}

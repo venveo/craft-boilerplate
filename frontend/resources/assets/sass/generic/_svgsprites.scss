@@ -1,0 +1,128 @@
+$sprites: (
+    'close': "/assets/images/svgsprites.svg#sprite-close-svg",
+    'facebook': "/assets/images/svgsprites.svg#sprite-facebook-svg",
+    'instagram': "/assets/images/svgsprites.svg#sprite-instagram-svg",
+    'swiper-lazy-black': "/assets/images/svgsprites.svg#sprite-swiper-lazy-black-svg",
+    'swiper-lazy-white': "/assets/images/svgsprites.svg#sprite-swiper-lazy-white-svg",
+    'swiper-nav-next-black': "/assets/images/svgsprites.svg#sprite-swiper-nav-next-black-svg",
+    'swiper-nav-next-white': "/assets/images/svgsprites.svg#sprite-swiper-nav-next-white-svg",
+    'swiper-nav-next': "/assets/images/svgsprites.svg#sprite-swiper-nav-next-svg",
+    'swiper-nav-prev-black': "/assets/images/svgsprites.svg#sprite-swiper-nav-prev-black-svg",
+    'swiper-nav-prev-white': "/assets/images/svgsprites.svg#sprite-swiper-nav-prev-white-svg",
+    'swiper-nav-prev': "/assets/images/svgsprites.svg#sprite-swiper-nav-prev-svg",
+    'twitter': "/assets/images/svgsprites.svg#sprite-twitter-svg"
+);
+
+$sizes: (
+    'close': (
+        'width': 34px,
+        'height': 32px
+    ),
+    'facebook': (
+        'width': 11px,
+        'height': 20px
+    ),
+    'instagram': (
+        'width': 19px,
+        'height': 19px
+    ),
+    'swiper-lazy-black': (
+        'width': 120px,
+        'height': 120px
+    ),
+    'swiper-lazy-white': (
+        'width': 120px,
+        'height': 120px
+    ),
+    'swiper-nav-next-black': (
+        'width': 27px,
+        'height': 44px
+    ),
+    'swiper-nav-next-white': (
+        'width': 27px,
+        'height': 44px
+    ),
+    'swiper-nav-next': (
+        'width': 27px,
+        'height': 44px
+    ),
+    'swiper-nav-prev-black': (
+        'width': 27px,
+        'height': 44px
+    ),
+    'swiper-nav-prev-white': (
+        'width': 27px,
+        'height': 44px
+    ),
+    'swiper-nav-prev': (
+        'width': 27px,
+        'height': 44px
+    ),
+    'twitter': (
+        'width': 21px,
+        'height': 18px
+    )
+);
+
+$variables: (
+    
+);
+
+// https://github.com/waldemarfm/sass-svg-uri/blob/v1.0.0/_svg-uri.scss
+@function sprite-str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if type-of($replace) == 'null' {
+        $replace: '';
+    }
+
+    @if ( $index ) {
+        @return str-slice($string, 1, $index - 1) + $replace + sprite-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function sprite-svg-uri($value) {
+    $encoded: '';
+    $slice: 2000;
+    $index: 0;
+
+    @for $i from 1 through ceil(str-length($value) / $slice) {
+        $chunk: str-slice($value, $index, $index + $slice - 1);
+        $chunk: sprite-str-replace($chunk, '"', "'");
+        $chunk: sprite-str-replace($chunk, '<', '%3C');
+        $chunk: sprite-str-replace($chunk, '>', '%3E');
+        $chunk: sprite-str-replace($chunk, '&', '%26');
+        $chunk: sprite-str-replace($chunk, '#', '%23');
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+
+    @return $encoded;
+}
+
+@mixin sprite-svg($name, $user-variables: (), $include-size: false) {
+    $sprite: map-get($sprites, $name);
+
+    // Inject variables
+    $default-variables: map-get($variables, $name);
+    @if type-of($default-variables) == 'map' {
+        @each $key, $value in map-merge($default-variables, $user-variables) {
+            @if ( not map-has-key($default-variables, $key) ) {
+                @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+            }
+
+            $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote($value)));
+        }
+    } @else if type-of($user-variables) == 'map' {
+        @warn 'Sprite \'#{$name}\' does not contain any variables';
+    }
+
+    background: url($sprite) center no-repeat;
+
+    @if $include-size {
+        $size: map-get($sizes, $name);
+        background-size: map-get($size, width) map-get($size, height);
+    }
+}
