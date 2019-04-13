@@ -11,28 +11,32 @@
         "source": "https://github.com/venveo/craft-boilerplate"
     },
     "require": {
-        "php": "^7.1",
-        "predis/predis": "^1.1",
-        "yiisoft/yii2-redis": "~2.0.0",
-        "craftcms/cms": "^3.0.0",
-        "vlucas/phpdotenv": "^2.4.0",
-        "craftcms/aws-s3": "^1.0",
-        "craftcms/element-api": "^2.5",
-        "craftcms/mailgun": "^1.0",
-        "craftcms/redactor": "^2.0",
-        "charliedev/element-map": "^1.0",
-        "mmikkel/cp-field-inspect": "^1.0",
-        "nystudio107/craft-eagerbeaver": "^1.0",
-        "aelvan/imager": "^2.0",
-        "clubstudioltd/craft-asset-rev": "^6.0",
-        "doublesecretagency/craft-cpcss": "^2.1"
-    },
-    "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "5.4.*",
-        "phpunit/phpunit-selenium": "^3.0",
-        "phpspec/phpspec": "~2.1"
+        "php": "^7.2",
+        "predis/predis": "1.1.1",
+        "craftcms/cms": "^3.1.0",
+        "vlucas/phpdotenv": "2.6.1",
+        "craftcms/aws-s3": "^1.2.0",
+        "craftcms/element-api": "^2.0.0",
+        "craftcms/mailgun": "^1.4.0",
+        "craftcms/redactor": "^2.3.0",
+        "charliedev/element-map": "^1.2.0",
+        "mmikkel/cp-field-inspect": "^1.0.0",
+        "anubarak/craft-relabel": "^1.2.0",
+        "sebastianlenz/linkfield": "^1.0.0",
+        "nystudio107/craft-minify": "^1.2.0",
+        "verbb/super-table": "^2.1.0",
+        "verbb/field-manager": "^2.0.0",
+        "yiisoft/yii2-redis": "2.0.9",
+        "lukeyouell/craft-queue-manager": "1.1.0",
+        "nystudio107/craft-seomatic": "^3.1.0",
+        "nystudio107/craft-twigpack": "^1.1.0",
+        "trendyminds/visor": "^2.1.0",
+        "aelvan/imager": "^2.1.0",
+        "nystudio107/craft-typogrify": "^1.1.0",
+        "venveo/craft-redactor-split": "^1.0",
+        "venveo/craft-redirect": "^2.0.0",
+        "venveo/craft-bulkedit": "^1.0.0",
+        "craftcms/feed-me": "4.0.0"
     },
     "suggest": {
         "ext-mbstring": "*",
@@ -49,5 +53,6 @@
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "dev"
+    "prefer-stable": true,
+    "minimum-stability": "stable"
 }

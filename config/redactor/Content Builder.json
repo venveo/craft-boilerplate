@@ -1,16 +1,12 @@
 {
     "buttons": [
-        "formatting",
         "bold",
         "italic",
         "unorderedlist",
         "orderedlist",
         "link"
     ],
-    "plugins": [],
-    "toolbarFixed": false,
-    "formatting": ["h2", "h3", "h4"],
-    "stylesClass": "site-text-editor",
+    "plugins": ["redactor-split"],
     "formattingAdd": {
     }
 }

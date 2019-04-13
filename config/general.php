@@ -8,40 +8,65 @@
  * @see craft\config\GeneralConfig
  */
 return [
-    // Default Week Start Day (0 = Sunday, 1 = Monday...)
-    'defaultWeekStartDay' => 0,
+    '*' => [
+        // Default Week Start Day (0 = Sunday, 1 = Monday...)
+        'defaultWeekStartDay' => 0,
 
-    // Enable CSRF Protection (recommended)
-    'enableCsrfProtection' => true,
+        // Enable CSRF Protection (recommended)
+        'enableCsrfProtection' => true,
 
-    'imageDriver' => 'imagick',
 
-    // Whether "index.php" should be visible in URLs
-    'omitScriptNameInUrls' => true,
+        // Whether "index.php" should be visible in URLs
+        'omitScriptNameInUrls' => true,
 
-    // Gif sanitation tends to blow up servers due to high memory consumption
-    'transformGifs' => false,
+        'imageDriver' => 'imagick',
 
-    // Control Panel trigger word
-    'cpTrigger' => 'admin',
+        // Gif sanitation tends to blow up servers due to high memory consumption
+        'transformGifs' => false,
 
-    // The secure key Craft will use for hashing and encrypting data
-    'securityKey' => getenv('SECURITY_KEY'),
+        // Control Panel trigger word
+        'cpTrigger' => 'admin',
 
-    'maxUploadFileSize' => 33554432 * 7,
+        // The secure key Craft will use for hashing and encrypting data
+        'securityKey' => getenv('SECURITY_KEY'),
 
-    'useEmailAsUsername' => true,
+        'maxUploadFileSize' => 33554432 * 7,
 
-    'extraAllowedFileExtensions' => 'json',
+        'useEmailAsUsername' => true,
 
-    'siteUrl' => getenv('APP_URL'),
-    'baseCpUrl' => getenv('APP_URL'),
+        'extraAllowedFileExtensions' => 'json,rvt,dwg,dxf,iges',
 
-    'devMode' => getenv('ENVIRONMENT') === 'staging' || getenv('ENVIRONMENT') === 'dev',
+        'siteUrl' => getenv('SITE_URL'),
+        'baseCpUrl' => getenv('SITE_URL'),
 
-    'runQueueAutomatically' => false,
+        'devMode' => false,
 
-    'cacheDuration' => 'P1W',
+        'runQueueAutomatically' => false,
 
-    'errorTemplatePrefix' => '_errors/'
+        'cacheDuration' => 'P1W',
+
+        'enableTemplateCaching' => true,
+
+        'errorTemplatePrefix' => 'default.site/_errors',
+
+        'extraFileKinds' => [
+            'cad' => [
+                'label' => 'CAD',
+                'extensions' => ['rvt', 'dwg', 'dxf', 'iges'],
+            ],
+        ],
+        'useProjectConfigFile' => false,
+        'allowAdminChanges' => true,
+        'aliases' => [
+            '@dist' => getenv('DIST_BASE_URL') ?? '/'
+        ]
+    ],
+    'staging' => [
+        'devMode' => true,
+    ],
+    'dev' => [
+        'allowAdminChanges' => true,
+        'enableTemplateCaching' => false,
+        'devMode' => true,
+    ],
 ];
