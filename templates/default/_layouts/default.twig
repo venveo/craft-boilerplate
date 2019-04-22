@@ -1,0 +1,21 @@
+{% extends '_shared/layouts/default.twig' %}
+{#{% do eagerLoadElements(entry, [#}
+    {#''#}
+{#]) %}#}
+
+
+{% block head %}
+    {% include '_partials/head.twig' %}
+{% endblock %}
+
+{% block body %}
+    {% include '_partials/header.twig' %}
+
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include '_partials/footer.twig' %}
+    {% include '_partials/scripts.twig' %}
+    {% block scripts %}{% endblock %}
+{% endblock %}
