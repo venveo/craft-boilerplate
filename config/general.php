@@ -47,7 +47,7 @@ return [
 
         'enableTemplateCaching' => true,
 
-        'errorTemplatePrefix' => 'foxblocks/_errors',
+        'errorTemplatePrefix' => '_errors',
 
         'extraFileKinds' => [
             'cad' => [
