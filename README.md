@@ -11,13 +11,8 @@ Start your next project faster with some sensible defaults. This boilerplate is 
 ## Whats Included
 
 - Exploded directory structure
-- PHPDotEnv
-- Laravel Mix (Webpack w/ ES6)
-- Vendored javascript extracted
-- Heroku configuration
 - AWS Elastic Beanstalk configuration
 - AWS CodeBuild Configuration
-- Scaffolded Foundation frontend project
 - Docker Environment
 - Helpful Craft Plugins
 

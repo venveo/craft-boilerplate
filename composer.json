@@ -35,7 +35,9 @@
         "venveo/craft-redactor-split": "^1.0",
         "venveo/craft-redirect": "^2.0.0",
         "venveo/craft-bulkedit": "^1.0.0",
-        "craftcms/feed-me": "4.0.0"
+        "craftcms/feed-me": "4.0.0",
+        "nystudio107/craft-scripts": "^1.2.4",
+        "ostark/craft-async-queue": "^1.3.0"
     },
     "suggest": {
         "ext-mbstring": "*",
@@ -53,5 +55,5 @@
         "preferred-install": "dist"
     },
     "prefer-stable": true,
-    "minimum-stability": "stable"
+    "minimum-stability": "beta"
 }

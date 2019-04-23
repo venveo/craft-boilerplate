@@ -1,34 +1,25 @@
 version: 0.2
 eb_codebuild_settings:
-  CodeBuildServiceRole: role-name
-  ComputeType: BUILD_GENERAL1_SMALL
-  Image: aws/codebuild/nodejs:6.3.1
-  Timeout: 30
+    CodeBuildServiceRole: role-name
+    ComputeType: BUILD_GENERAL1_SMALL
+    Image: aws/codebuild/nodejs:10.14.1
+    Timeout: 30
 
 phases:
-  install:
-    commands:
-      - echo INSTALL started on `date`
-      - echo `pwd`
-      - npm install yarn -g
-      - yarn install
-      - echo INSTALL completed on `date`
-  build:
-    commands:
-      - echo BUILD started on `date`
-      - echo `pwd`
-      - npm run production
-      - echo BUILD completed on `date`
-  post_build:
-    commands:
-      - echo POST_BUILD started on `date`
-      - echo `pwd`
-      - rm -rf node_modules
-      - echo POST_BUILD completed on `date`
+    install:
+        commands:
+            - npm install
+            - echo INSTALL completed on `date`
+    build:
+        commands:
+            - echo BUILD started on `date`
+            - echo `pwd`
+            - npm run production
+            - echo BUILD completed on `date`
 artifacts:
-  files:
-    - '**/*'
+    files:
+        - '**/*'
 
 cache:
-  paths:
-    - '/node_modules'
+    paths:
+        - '/node_modules/*/**'

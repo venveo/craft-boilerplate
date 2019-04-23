@@ -2,7 +2,7 @@
 /.mysql.env
 /.idea
 /vendor
-frontend/dist/*
+src/dist/*
 web/assets/*
 .DS_Store
 node_modules
