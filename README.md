@@ -20,36 +20,9 @@ Start your next project faster with some sensible defaults. This boilerplate is 
 - Scaffolded Foundation frontend project
 - Docker Environment
 - Helpful Craft Plugins
-    - Asset Rev (for versioning css/js)
-    - AWS S3 Volumes
-    - EagerBeaver
-    - Element API
-    - Mailgun
-    - Element Map
-    - Imager
-    - CP CSS
 
-### PHPDotEnv Support
+## Folder Structure
 
-### Laravel Mix/Webpack
-TODO
-### Heroku Ready!
-TODO
-
-## Installation and Setup
-TODO
-
-### Craft Installer
-TODO
-
-### Manual Installation
-TODO
-
-## Credits
-
-* [Ransom Roberson](https://github.com/mosnar)
-* [Jason McCallister](https://github.com/themccallister)
-* [Carlo Latiano](https://github.com/carlolaitano)
 
 ## About Venveo
 

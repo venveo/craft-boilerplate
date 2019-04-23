@@ -43,7 +43,7 @@ return [
 
         'runQueueAutomatically' => false,
 
-        'cacheDuration' => 'P1W',
+        'cacheDuration' => 0,
 
         'enableTemplateCaching' => true,
 
