@@ -16,11 +16,16 @@
  * *only* console requests, create an app.web.php or app.console.php file in
  * your config/ folder, alongside this one.
  */
+
+use yii\redis\Cache;
+use yii\redis\Connection;
+
 return [
     'components' => [
         'deprecator' => [
-            'throwExceptions' => YII_DEBUG,
+            'throwExceptions' => getenv('ENVIRONMENT') !== 'production',
         ],
+
         // Configure redis
         'redis' => [
             'class' => yii\redis\Connection::class,
@@ -28,6 +33,7 @@ return [
             'port' => getenv('REDIS_PORT'),
             'database' => getenv('REDIS_DB'),
         ],
+
         // Use redis as our caching mechanism
         'cache' => [
             // Use database 1 for live production
@@ -38,17 +44,19 @@ return [
                 'database' => getenv('REDIS_DB'),
             ],
         ],
+
         // Allow our queue jobs to run longer than the default (300)
         'queue' => [
             'ttr' => 1000,
         ],
+
         // Use redis for session storage
-        'session' => function() {
-            $stateKeyPrefix = md5('Craft.'.craft\web\Session::class.'.'.Craft::$app->id);
+        'session' => function () {
+            $stateKeyPrefix = md5('Craft.' . craft\web\Session::class . '.' . Craft::$app->id);
             /** @var yii\redis\Session $session */
             $session = Craft::createObject([
                 'class' => yii\redis\Session::class,
-                'flashParam' => $stateKeyPrefix.'__flash',
+                'flashParam' => $stateKeyPrefix . '__flash',
                 'name' => Craft::$app->getConfig()->getGeneral()->phpSessionName,
                 'cookieParams' => Craft::cookieConfig(),
             ]);
@@ -56,8 +64,6 @@ return [
             return $session;
         }
     ],
-    'modules' => [
-
-    ],
+    'modules' => [],
     'bootstrap' => [],
 ];

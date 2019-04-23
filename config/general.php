@@ -36,8 +36,8 @@ return [
 
         'extraAllowedFileExtensions' => 'json,rvt,dwg,dxf,iges',
 
-        'siteUrl' => getenv('SITE_URL'),
-        'baseCpUrl' => getenv('SITE_URL'),
+        'siteUrl' => getenv('DEFAULT_SITE_URL'),
+        'baseCpUrl' => getenv('DEFAULT_SITE_URL'),
 
         'devMode' => false,
 
@@ -47,7 +47,7 @@ return [
 
         'enableTemplateCaching' => true,
 
-        'errorTemplatePrefix' => 'default.site/_errors',
+        'errorTemplatePrefix' => 'foxblocks/_errors',
 
         'extraFileKinds' => [
             'cad' => [

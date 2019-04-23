@@ -2,12 +2,13 @@
 
 // We're gonna use S3 for our image transforms.
 return [
-    'imagerUrl' => getenv('ASSETS_BASE_URL') . '/transforms/',
+    'imagerUrl' => getenv('ASSETS_BASE_URL') . 'transforms',
     'imagerSystemPath' => '@storage/imager',
     'removeMetadata' => true,
     'storages' => ['aws'],
+    'optimizers' => ['jpegoptim', 'pngquant', 'gifsicle'],
     'transformer' => 'craft',
-    'interlace' => 'line',
+    'interlace' => false,
     'storageConfig' => [
         'aws' => [
             'accessKey' => getenv('AWS_KEY_ID'),
