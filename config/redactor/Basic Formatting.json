@@ -5,7 +5,8 @@
         "italic",
         "unorderedlist",
         "orderedlist",
-        "link"
+        "link",
+        "file"
     ],
     "plugins": [],
     "toolbarFixed": false,

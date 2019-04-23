@@ -4,8 +4,10 @@
         "italic",
         "unorderedlist",
         "orderedlist",
-        "link"
+        "link",
+        "file"
     ],
+    "toolbarFixed": true,
     "plugins": ["redactor-split"],
     "formattingAdd": {
     }
