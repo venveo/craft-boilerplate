@@ -13,43 +13,45 @@
  * built-in system components.
  */
 
+use craft\behaviors\SessionBehavior;
+use craft\web\Session;
+use yii\redis\Cache;
+use yii\redis\Connection;
+
 return [
 
     // All environments
     '*' => [
-        'modules'   => [
+        'modules' => [
             'site-module' => [
                 'class' => \modules\sitemodule\SiteModule::class,
             ],
         ],
         'bootstrap' => ['site-module'],
-    ],
 
-    // Live (production) environment
-    'production'  => [
         'components' => [
             // Default to database 0, so PHP sessions are in a separate database
             'redis' => [
                 'class' => yii\redis\Connection::class,
-                'hostname' => 'localhost',
-                'port' => 6379,
-                'database' => 0,
+                'hostname' => getenv('REDIS_HOST'),
+                'port' => getenv('REDIS_PORT'),
+                'database' => getenv('REDIS_DB'),
             ],
             'cache' => [
                 // Use database 1 for live production
                 'class' => yii\redis\Cache::class,
                 'redis' => [
-                    'hostname' => 'localhost',
-                    'port' => 6379,
-                    'database' => 1,
+                    'hostname' => getenv('REDIS_HOST'),
+                    'port' => getenv('REDIS_PORT'),
+                    'database' => getenv('REDIS_DB'),
                 ],
             ],
-            'session' => function() {
-                $stateKeyPrefix = md5('Craft.'.craft\web\Session::class.'.'.Craft::$app->id);
+            'session' => function () {
+                $stateKeyPrefix = md5('Craft.' . craft\web\Session::class . '.' . Craft::$app->id);
                 /** @var yii\redis\Session $session */
                 $session = Craft::createObject([
                     'class' => yii\redis\Session::class,
-                    'flashParam' => $stateKeyPrefix.'__flash',
+                    'flashParam' => $stateKeyPrefix . '__flash',
                     'name' => Craft::$app->getConfig()->getGeneral()->phpSessionName,
                     'cookieParams' => Craft::cookieConfig(),
                 ]);
@@ -57,43 +59,22 @@ return [
                 return $session;
             },
         ],
+    ],
+
+    // Live (production) environment
+    'production' => [
     ],
 
     // Staging (pre-production) environment
-    'staging'  => [
-        // Default to database 0, so PHP sessions are in a separate database
-        'components' => [
-            'redis' => [
-                'class' => yii\redis\Connection::class,
-                'hostname' => 'localhost',
-                'port' => 6379,
-                'database' => 0,
-            ],
-            // Use database 2 for staging
-            'cache' => [
-                'class' => yii\redis\Cache::class,
-                'redis' => [
-                    'hostname' => 'localhost',
-                    'port' => 6379,
-                    'database' => 2,
-                ],
-            ],
-            'session' => function() {
-                $stateKeyPrefix = md5('Craft.'.craft\web\Session::class.'.'.Craft::$app->id);
-                /** @var yii\redis\Session $session */
-                $session = Craft::createObject([
-                    'class' => yii\redis\Session::class,
-                    'flashParam' => $stateKeyPrefix.'__flash',
-                    'name' => Craft::$app->getConfig()->getGeneral()->phpSessionName,
-                    'cookieParams' => Craft::cookieConfig(),
-                ]);
-                $session->attachBehaviors([craft\behaviors\SessionBehavior::class]);
-                return $session;
-            },
-        ],
+    'staging' => [
     ],
 
     // Local (development) environment
-    'dev'  => [
+    'dev' => [
+        'components' => [
+            'deprecator' => [
+                'throwExceptions' => getenv('ENVIRONMENT') === 'dev',
+            ],
+        ]
     ],
 ];

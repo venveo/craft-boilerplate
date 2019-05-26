@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://use.typekit.net/okx8bbp.css">
+{#
+What are we doing here?
+A. If a cookie called "critical-css" exists, load the CSS like normal. It will be cached in the browser. Don't continue
+B. No critical-css cookie exists, load our critical css (if it exists - based on the current page template being rendered) Go to C
+C. Load our styles.css as a module, not blocking page rendering. Go to D
+D. Set "critical-css" cookie for 7 days. Done.
+
+#}
+{% set requestCookies = craft.app.request.cookies %}
+{% set critCookie = requestCookies.get('critical-css') %}
+{% set responseCookies = craft.app.response.cookies %}
+{% if critCookie is defined and critCookie and critCookie.value != '' %}
+    {{ craft.twigpack.includeCssModule("styles.css", false) }}
+{% else %}
+    {% set cookie = create({
+        'class': 'yii\\web\\Cookie',
+        'name': 'critical-css',
+        'value': '1',
+        'expire': now | date_modify("+7 days").timestamp
+    }) %}
+    {% do responseCookies.add(cookie) %}
+    {{ craft.twigpack.includeCriticalCssTags() }}
+    {{ craft.twigpack.includeCssModule("styles.css", true) }}
+    {{ craft.twigpack.includeCssRelPreloadPolyfill() }}
+{% endif %}

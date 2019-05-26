@@ -2,11 +2,14 @@ version: 0.2
 eb_codebuild_settings:
     CodeBuildServiceRole: role-name
     ComputeType: BUILD_GENERAL1_SMALL
-    Image: aws/codebuild/nodejs:10.14.1
+    Image: aws/codebuild/standard:2.0
     Timeout: 30
 
 phases:
     install:
+        runtime-versions:
+            nodejs: 10
+    pre_build:
         commands:
             - npm install
             - echo INSTALL completed on `date`
@@ -14,7 +17,7 @@ phases:
         commands:
             - echo BUILD started on `date`
             - echo `pwd`
-            - npm run production
+            - npm run build
             - echo BUILD completed on `date`
 artifacts:
     files:

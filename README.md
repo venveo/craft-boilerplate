@@ -6,7 +6,7 @@ Start your next project faster with some sensible defaults. This boilerplate is 
 
 - [Composer](https://getcomposer.org)
 - [NPM](https://www.npmjs.com)
-- [PHP 7.0+](http://php.net)
+- [PHP 7.2+](http://php.net)
 
 ## Whats Included
 
@@ -15,9 +15,12 @@ Start your next project faster with some sensible defaults. This boilerplate is 
 - AWS CodeBuild Configuration
 - Docker Environment
 - Helpful Craft Plugins
-
-## Folder Structure
-
+- Tailwind 1.x
+- Vue
+- PostCSS configuration
+- Sylelint
+- Twigpack plugin configuration for webpack development locally
+- Basic starter module
 
 ## About Venveo
 

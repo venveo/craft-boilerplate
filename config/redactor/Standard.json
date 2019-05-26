@@ -14,5 +14,5 @@
         "fullscreen",
         "video"
     ],
-    "toolbarFixed": false
+    "toolbarFixed": true
 }

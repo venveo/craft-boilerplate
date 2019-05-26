@@ -8,12 +8,12 @@ return [
         'errorEntry' => '',
         // Manifest file names
         'manifest' => [
-            'legacy' => 'mix-manifest.json',
-            'modern' => 'mix-manifest.json',
+            'legacy' => 'manifest-legacy.json',
+            'modern' => 'manifest.json',
         ],
         // Public server config
         'server' => [
-            'manifestPath' => '/',
+            'manifestPath' => '@webroot/dist/',
             'publicPath' => '/',
         ],
         // webpack-dev-server config
@@ -24,12 +24,12 @@ return [
         // Local files config
         'localFiles' => [
             'basePath' => '@webroot/',
-//            'criticalPrefix' => 'dist/criticalcss/',
-//            'criticalSuffix' => '_critical.min.css',
+            'criticalPrefix' => 'dist/criticalcss/',
+            'criticalSuffix' => '_critical.min.css',
         ],
     ],
     // Live (production) environment
-    'live' => [
+    'production' => [
     ],
     // Staging (pre-production) environment
     'staging' => [

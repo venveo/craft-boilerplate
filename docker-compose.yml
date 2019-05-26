@@ -1,42 +1,43 @@
-version: '2'
+version: '3.2'
 services:
 
-    web:
-        image: venveo/baseimage:php7-apache-alpine
-        ports:
-            - 8000:80
-        depends_on:
-            - mysql-server
-            - redis-server
-        links:
-            - mysql-server
-            - redis-server
-        cap_add:
-          - SYS_TIME
-          - SYS_NICE
-        volumes:
-            - ./vendor:/app/vendor
-            - ./web:/app/web
-            - ./plugins:/app/plugins
-            - ./config:/app/config
-            - ./modules:/app/modules
-            - ./templates:/app/templates
-            - ./.env:/app/.env
-            - ./storage:/app/storage
-        env_file: .env
+  web:
+    image: venveo/baseimage:php7-apache-alpine
+    ports:
+      - 8000:80
+    depends_on:
+      - mysql-server
+      - redis-server
+    links:
+      - mysql-server
+      - redis-server
+    cap_add:
+      - SYS_TIME
+      - SYS_NICE
+    volumes:
+      - ./vendor:/app/vendor:cached
+      - ./web:/app/web:cached
+      - ./src:/app/src:cached
+      - ./config:/app/config:consistent
+      - ./modules:/app/modules:consistent
+      - ./templates:/app/templates:consistent
+      - ./.env:/app/.env:delegated
+      - ./storage:/app/storage:consistent
 
-    mysql-server:
-        image: venveo/baseimage:5.7-mysql
-        ports:
-            - 3306:3306
-        volumes:
-            - ./database:/var/lib/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: SuperLongPassword!
-            MYSQL_DATABASE: dev_craftcms
-            MYSQL_PASSWORD: Password1!
-            MYSQL_USER: craftcms
-            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+  mysql-server:
+    image: venveo/baseimage:5.7-mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database:/var/lib/mysql:delegated
+    environment:
+      MYSQL_ROOT_PASSWORD: SuperLongPassword!
+      MYSQL_DATABASE: dev_craftcms
+      MYSQL_PASSWORD: Password1!
+      MYSQL_USER: craftcms
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
 
-    redis-server:
-        image: redis:alpine
+  redis-server:
+    image: redis:alpine
+    ports:
+      - 6379:6379

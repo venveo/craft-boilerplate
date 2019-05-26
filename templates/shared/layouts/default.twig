@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% hook 'seomateMeta' %}
+    {# Add any page specific things to the head here #}
+    {% block head %}{% endblock %}
+    {# Define your javascript templates in the templates block using verbatim #}
+    {% block templates %}{% endblock %}
+    {{ head() }}
+</head>
+
+<body>
+{{ beginBody() }}
+{% block body %}{% endblock %}
+{{ endBody() }}
+</body>
+</html>

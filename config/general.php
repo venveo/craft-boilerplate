@@ -41,7 +41,7 @@ return [
 
         'devMode' => false,
 
-        'runQueueAutomatically' => false,
+        'runQueueAutomatically' => true,
 
         'cacheDuration' => 0,
 
@@ -58,7 +58,8 @@ return [
         'useProjectConfigFile' => false,
         'allowAdminChanges' => true,
         'aliases' => [
-            '@dist' => getenv('DIST_BASE_URL') ?? '/'
+            '@dist' => getenv('DIST_BASE_URL') ?? '/',
+            '@src' => CRAFT_BASE_PATH . '/src' ?? '/src',
         ]
     ],
     'staging' => [
