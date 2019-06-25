@@ -62,6 +62,7 @@ if( env === 'frontend' ){
         layoutsDir: srcTplPath + '/layouts', // Base layout of html structure. [Requirement]
         partialsDir: srcTplPath + '/partials', // This is where your partial html component.
         pagesDir: srcTplPath + '/pages', // This is where your partial html page content `{{> body}}`.
+        // createDir: true, // This will create dir on every compiled html
         distDir: distPath // Public dir where to output the compiled html pages. [Requirement]
     })
 }
