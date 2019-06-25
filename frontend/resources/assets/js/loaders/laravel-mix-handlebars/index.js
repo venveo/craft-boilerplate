@@ -13,6 +13,7 @@ class mixHandlebars {
         this.layoutsDir = options.layoutsDir
         this.partialsDir = options.partialsDir
         this.pagesDir = options.pagesDir
+        this.createDir = options.createDir
         this.distDir = options.distDir
 
         // Check for required Object Option property
@@ -174,13 +175,23 @@ class mixHandlebars {
     renderTemplate(filename, compiledHtmlTemplate) {
         // console.log(filename+'.html')
         // console.log(compiledHtmlTemplate)
-        mkdirp(this.distDir, function (err) {
-            if (err) return cb(err);
-        });
+        if ( this.createDir === true ) {
+            let pathDir = this.distDir+'/'+filename
+            mkdirp(this.distDir+'/'+filename, function (err) {
+                if (err) { return console.error(err); }
+                fs.writeFile(pathDir+'/'+'index.html', compiledHtmlTemplate, function(err) {
+                    if (err) { console.error(err); }
+                })
+            });
+        } else {
+            mkdirp(this.distDir, function (err) {
+                if (err) { return console.error(err); }
+            });
 
-        fs.writeFile(this.distDir+'/'+filename+'.html', compiledHtmlTemplate, function(err) {
-            if (err) return cb(err);
-        })
+            fs.writeFile(this.distDir+'/'+filename+'.html', compiledHtmlTemplate, function(err) {
+                if (err) { return console.error(err); }
+            })
+        }
     }
 }
 
