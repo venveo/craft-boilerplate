@@ -4,11 +4,11 @@ module.exports = {
         require('postcss-flexbugs-fixes'),
         require('tailwindcss')({config: './tailwind.config.js'}),
         require('postcss-pxtorem')({
-            // propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
-            propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'width', 'height', 'max-width', 'min-width', 'max-height', 'min-height', 'margin-top', 'margin-left', 'margin-bottom', 'margin-right', 'padding-top', 'padding-left', 'padding-bottom', 'padding-right'],
+            propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+            // propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'width', 'height', 'max-width', 'min-width', 'max-height', 'min-height', 'margin-top', 'margin-left', 'margin-bottom', 'margin-right', 'padding-top', 'padding-left', 'padding-bottom', 'padding-right'],
         }),
         require('postcss-preset-env')({
-            autoprefixer: { grid: true },
+            autoprefixer: { grid: false },
             features: {
                 'nesting-rules': true
             }

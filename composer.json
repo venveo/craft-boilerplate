@@ -15,9 +15,9 @@
     "source": "https://github.com/venveo/craft-boilerplate"
   },
   "require": {
-    "php": "^7.2",
+    "php": "^7.3",
     "predis/predis": "1.1.1",
-    "craftcms/cms": "^3.2.9",
+    "craftcms/cms": "^3.4",
     "vlucas/phpdotenv": "2.6.1",
     "craftcms/aws-s3": "1.2.5",
     "craftcms/element-api": "2.6.0",
@@ -33,8 +33,8 @@
     "nystudio107/craft-minify": "1.2.9",
     "verbb/super-table": "2.2.1",
     "verbb/field-manager": "2.1.0",
-    "venveo/craft-redirect": "^2.0",
-    "verbb/super-table": "2.2.1",
+    "venveo/craft-redirect": "^3.0",
+    "verbb/super-table": "2.3",
     "nystudio107/craft-typogrify": "1.1.18",
     "aelvan/imager": "2.1.10"
   },
