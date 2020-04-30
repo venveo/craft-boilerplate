@@ -35,24 +35,23 @@
     "venveo/craft-redirect": "^3.0",
     "verbb/super-table": "2.3",
     "nystudio107/craft-typogrify": "1.1.18",
-    "aelvan/imager": "2.1.10"
+    "aelvan/imager": "2.2"
   },
   "suggest": {
     "ext-mbstring": "*",
     "ext-mcrypt": "*",
     "ext-imagick": "*"
   },
-  "scripts": {
-    "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
-    ],
-    "post-create-project-cmd": [],
-    "craft:install": []
-  },
-  "repositories": [],
-  "minimum-stability": "beta",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "config": {
     "preferred-install": "dist"
+  },
+  "scripts": {
+    "clear-caches": [
+      "@php craft migrate/all",
+      "@php craft project-config/sync",
+      "@php craft clear-caches/all"
+    ]
   }
 }
