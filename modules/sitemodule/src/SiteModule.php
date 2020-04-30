@@ -9,12 +9,8 @@ namespace modules\sitemodule;
 
 use Craft;
 use craft\events\RegisterTemplateRootsEvent;
-use craft\events\TemplateEvent;
-use craft\i18n\PhpMessageSource;
 use craft\web\View;
-use modules\sitemodule\assetbundles\sitemodule\SiteModuleAsset;
 use yii\base\Event;
-use yii\base\InvalidConfigException;
 use yii\base\Module;
 
 /**
@@ -65,32 +61,6 @@ class SiteModule extends Module
     {
         parent::init();
         self::$instance = $this;
-
-        if (Craft::$app->getRequest()->getIsCpRequest()) {
-            Event::on(
-                View::class,
-                View::EVENT_BEFORE_RENDER_TEMPLATE,
-                function (TemplateEvent $event) {
-                    try {
-                        Craft::$app->getView()->registerAssetBundle(SiteModuleAsset::class);
-                    } catch (InvalidConfigException $e) {
-                        Craft::error(
-                            'Error registering AssetBundle - ' . $e->getMessage(),
-                            __METHOD__
-                        );
-                    }
-                }
-            );
-        }
-
-        Craft::info(
-            Craft::t(
-                'site-module',
-                '{name} module loaded',
-                ['name' => 'Site']
-            ),
-            __METHOD__
-        );
     }
 
     // Protected Methods
