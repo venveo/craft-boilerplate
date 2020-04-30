@@ -13,11 +13,6 @@
  * built-in system components.
  */
 
-use craft\behaviors\SessionBehavior;
-use craft\web\Session;
-use yii\redis\Cache;
-use yii\redis\Connection;
-
 return [
 
     // All environments
@@ -73,7 +68,7 @@ return [
     'dev' => [
         'components' => [
             'deprecator' => [
-                'throwExceptions' => getenv('ENVIRONMENT') === 'dev',
+                'throwExceptions' => true,
             ],
         ]
     ],
