@@ -142,7 +142,6 @@
     "picturefill": "^3.0.3",
     "regenerator-runtime": "^0.13.5",
     "tailwindcss": "^1.3.4",
-    "tailwindcss-transforms": "^2.2.0",
     "vue": "^2.5.17",
     "vue-confetti": "^0.4.2"
   }
