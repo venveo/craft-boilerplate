@@ -342,9 +342,6 @@ module.exports = [
                 ],
             },
             plugins: [
-                new CleanWebpackPlugin(settings.paths.dist.clean,
-                    configureCleanWebpack()
-                ),
                 new MiniCssExtractPlugin({
                     path: path.resolve(__dirname, settings.paths.dist.base),
                     filename: path.join('./css', '[name].[chunkhash].css'),
@@ -395,6 +392,9 @@ module.exports = [
                 ],
             },
             plugins: [
+                new CleanWebpackPlugin(settings.paths.dist.clean,
+                    configureCleanWebpack()
+                ),
                 new webpack.optimize.ModuleConcatenationPlugin(),
                 new webpack.BannerPlugin(
                     configureBanner()
